@@ -6,7 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 function App() {
 
   const feeling = useSelector(store => store.feeling);
+  const understanding = useSelector(store => store.understanding);
+  const support = useSelector(store => store.support);
+  const comments = useSelector(store => store.comments);
   console.log(feeling);
+  console.log(understanding);
+  console.log(support);
+  console.log(comments);
 
   const dispatch = useDispatch();
 
