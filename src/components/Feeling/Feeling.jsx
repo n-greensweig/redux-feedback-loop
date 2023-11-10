@@ -9,7 +9,7 @@ function Feeling() {
             <TextField type="number"
                 label='Feeling?'
             />
-            <NextButton />
+            <NextButton path={'understanding'} />
         </>
     )
 
