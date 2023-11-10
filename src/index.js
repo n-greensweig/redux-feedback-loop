@@ -11,9 +11,24 @@ const feeling = (state = null, action) => {
     return state;
 };
 
+const understanding = (state = null, action) => {
+    return state;
+};
+
+const support = (state = null, action) => {
+    return state;
+};
+
+const comments = (state = '', action) => {
+    return state;
+};
+
 const reduxStore = createStore(
     combineReducers({
         feeling,
+        understanding,
+        support,
+        comments,
     }),
     applyMiddleware(logger)
 );
