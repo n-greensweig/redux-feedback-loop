@@ -8,18 +8,30 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
 const feeling = (state = null, action) => {
+    // Conditional to handle feeling dispatch
+
+
     return state;
 };
 
 const understanding = (state = null, action) => {
+    // Conditional to handle understanding dispatch
+
+
     return state;
 };
 
 const support = (state = null, action) => {
+    // Conditional to handle support dispatch
+
+
     return state;
 };
 
 const comments = (state = '', action) => {
+    // Conditional to handle comments dispatch
+
+
     return state;
 };
 

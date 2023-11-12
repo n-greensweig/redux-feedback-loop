@@ -3,6 +3,8 @@ import NextButton from "../NextButton/NextButton";
 
 function Feeling() {
 
+    // Add feeling dispatch
+
     return (
         <>
             <h1>How are you feeling today?</h1>

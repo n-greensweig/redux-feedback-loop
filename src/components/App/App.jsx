@@ -30,6 +30,10 @@ function App() {
       </div>
 
       <Router>
+
+        {/* Add start page to navigate to /feeling and return to from /submission */}
+
+
         <Route exact path='/feeling'>
           <Feeling />
         </Route>
@@ -50,7 +54,7 @@ function App() {
           <Submission />
         </Route>
 
-      </Router>
+      </Router >
     </>
   );
 }

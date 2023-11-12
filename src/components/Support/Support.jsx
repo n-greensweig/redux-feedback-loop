@@ -3,6 +3,8 @@ import NextButton from "../NextButton/NextButton";
 
 function Support() {
 
+    // Add support dispatch
+
     return (
         <>
             <h1>How well are you being supported?</h1>

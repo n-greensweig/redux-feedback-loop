@@ -3,6 +3,8 @@ import NextButton from "../NextButton/NextButton";
 
 function Comments() {
 
+    // Add comments dispatch
+
     return (
         <>
             <h1>Any comments you want to leave?</h1>
