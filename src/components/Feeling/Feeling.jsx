@@ -22,10 +22,11 @@ function Feeling() {
     const handleClick = (e) => {
 
         e.preventDefault();
-        history.push(`/understanding`);
         const action = { type: 'FEELING', payload: newFeeling };
         console.log(action.payload);
         dispatch(action);
+        history.push(`/understanding`);
+        
     };
 
 

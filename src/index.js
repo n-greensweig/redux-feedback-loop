@@ -18,15 +18,21 @@ const feeling = (state = null, action) => {
 };
 
 const understanding = (state = null, action) => {
+    
     // Conditional to handle understanding dispatch
-
+    if (action.type === 'UNDERSTANDING') {
+        console.log('understanding');
+    }
 
     return state;
 };
 
 const support = (state = null, action) => {
+    
     // Conditional to handle support dispatch
-
+    if (action.type === 'SUPPORT') {
+        console.log('support');
+    }
 
     return state;
 };
