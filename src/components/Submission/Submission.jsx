@@ -9,7 +9,7 @@ function Submission() {
 
     const history = useHistory();
 
-    // 
+    // Link local variables to global reducers
     const feeling = useSelector(store => store.feeling);
     const understanding = useSelector(store => store.understanding);
     const support = useSelector(store => store.support);
@@ -46,7 +46,7 @@ function Submission() {
             <h3>Support: {support}</h3>
             <h3>Comments: {comments}</h3>
 
-            <Button variant="outlined" onClick={handleSubmit} endIcon={<ReplayIcon />}>Submit another feedback form</Button>
+            <Button variant="outlined" onClick={handleSubmit} endIcon={<ReplayIcon />}>Submit feedback</Button>
         </>
     )
 

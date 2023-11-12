@@ -31,6 +31,7 @@ function Support() {
             <TextField type="number"
                 label="Support?"
                 onChange={e => setNewSupport(e.target.value)}
+                required
             />
 
             {/* <NextButton path={'comments'} /> */}

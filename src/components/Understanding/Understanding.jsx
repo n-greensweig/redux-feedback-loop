@@ -31,6 +31,7 @@ function Understanding() {
             <TextField type="number"
                 label="Understanding?"
                 onChange={e => setNewUnderstanding(e.target.value)}
+                required
                 />
             {/* <NextButton path={'support'} /> */}
             <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>

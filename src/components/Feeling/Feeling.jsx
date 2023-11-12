@@ -12,7 +12,6 @@ function Feeling() {
     const history = useHistory();
 
     // Add feeling dispatch
-    // const feeling = useSelector(store => store.feeling);
     const [newFeeling, setNewFeeling] = useState(null);
 
     // Dispatch
@@ -35,6 +34,7 @@ function Feeling() {
             <TextField type="number"
                 label='Feeling?'
                 onChange={e => setNewFeeling(e.target.value)}
+                required
             />
 
             <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
