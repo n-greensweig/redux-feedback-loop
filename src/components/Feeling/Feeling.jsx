@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-import { NavigateNext } from "@mui/icons-material";
 import { Button } from "@mui/material";
+import { NavigateNext } from "@mui/icons-material";
 
 function Feeling() {
 
@@ -23,7 +23,6 @@ function Feeling() {
 
         e.preventDefault();
         const action = { type: 'FEELING', payload: newFeeling };
-        console.log(action.payload);
         dispatch(action);
         history.push(`/understanding`);
         
@@ -38,7 +37,7 @@ function Feeling() {
                 onChange={e => setNewFeeling(e.target.value)}
             />
 
-            <Button variant="outlined" onClick={handleClick} startIcon={<NavigateNext />}>Next</Button>
+            <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
         </>
     )
 

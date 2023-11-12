@@ -10,9 +10,6 @@ function Comments() {
 
     const history = useHistory();
 
-    // Connect local variable to reducers
-    const comments = useSelector(store => store.comments);
-
     // Comments dispactch
     const dispatch = useDispatch();
     const [newComments, setNewComments] = useState('');
@@ -23,7 +20,6 @@ function Comments() {
         e.preventDefault();
         const action = { type: 'COMMENTS', payload: newComments };
         dispatch(action);
-        console.log('hey-o');
         history.push('/submission');
 
     };
@@ -35,7 +31,7 @@ function Comments() {
                 label='Comments?'
                 onChange={e => setNewComments(e.target.value)}
             />
-            <Button variant="outlined" onClick={handleClick} startIcon={<NavigateNext />}>Next</Button>
+            <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
             {/* <NextButton handleClick={handleClick} path={'submission'} /> */}
         </>
     )
