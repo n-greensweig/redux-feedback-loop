@@ -31,25 +31,28 @@ function App() {
 
       <Router>
 
-        {/* Add start page to navigate to /feeling and return to from /submission */}
+        {/* Add home page to navigate to /feeling and return to from /submission */}
 
+        <form>
 
-        <Route exact path='/feeling'>
-          <Feeling />
-        </Route>
+          <Route exact path='/feeling'>
+            <Feeling />
+          </Route>
 
-        <Route exact path='/understanding'>
-          <Understanding />
-        </Route>
+          <Route exact path='/understanding'>
+            <Understanding />
+          </Route>
 
-        <Route exact path='/support'>
-          <Support />
-        </Route>
+          <Route exact path='/support'>
+            <Support />
+          </Route>
 
-        <Route exact path='/comments'>
-          <Comments />
-        </Route>
+          <Route exact path='/comments'>
+            <Comments />
+          </Route>
 
+        </form>
+        
         <Route exact path='/submission'>
           <Submission />
         </Route>

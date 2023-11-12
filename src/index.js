@@ -8,8 +8,11 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
 const feeling = (state = null, action) => {
-    // Conditional to handle feeling dispatch
 
+    // Conditional to handle feeling dispatch
+    if (action.type === 'COMMENTS') {
+        console.log('comments!!');
+    }
 
     return state;
 };
@@ -29,8 +32,11 @@ const support = (state = null, action) => {
 };
 
 const comments = (state = '', action) => {
-    // Conditional to handle comments dispatch
 
+    // Conditional to handle comments dispatch
+    if (action.type === 'COMMENTS') {
+        console.log('comments!!');
+    }
 
     return state;
 };

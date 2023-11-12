@@ -1,4 +1,8 @@
+import axios from "axios";
+
 function Submission() {
+
+    // Handle submit function with /feedback POST request to database
 
     return (
         <>

@@ -7,6 +7,8 @@ function NextButton(props) {
     const history = useHistory();
 
     const handleClick = (e) => {
+
+        e.preventDefault();
         history.push(`/${props.path}`);
     };
 
