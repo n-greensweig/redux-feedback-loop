@@ -20,7 +20,6 @@ function Understanding() {
 
         e.preventDefault();
         const action = { type: 'UNDERSTANDING', payload: newUnderstanding };
-        console.log(action.payload);
         dispatch(action);
         history.push(`/support`);
         
@@ -34,7 +33,7 @@ function Understanding() {
                 onChange={e => setNewUnderstanding(e.target.value)}
                 />
             {/* <NextButton path={'support'} /> */}
-            <Button variant="outlined" onClick={handleClick} startIcon={<NavigateNext />}>Next</Button>
+            <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
         </>
     )
 

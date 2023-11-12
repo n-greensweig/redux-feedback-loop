@@ -20,7 +20,6 @@ function Support() {
 
         e.preventDefault();
         const action = { type: 'SUPPORT', payload: newSupport };
-        console.log(action.payload);
         dispatch(action);
         history.push(`/comments`);
 

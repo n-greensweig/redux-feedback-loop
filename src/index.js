@@ -10,8 +10,8 @@ import logger from 'redux-logger';
 const feeling = (state = null, action) => {
 
     // Conditional to handle feeling dispatch
-    if (action.type === 'COMMENTS') {
-        console.log('comments!!');
+    if (action.type === 'FEELING') {
+        return action.payload;
     }
 
     return state;
@@ -21,7 +21,7 @@ const understanding = (state = null, action) => {
     
     // Conditional to handle understanding dispatch
     if (action.type === 'UNDERSTANDING') {
-        console.log('understanding');
+        return action.payload;
     }
 
     return state;
@@ -31,7 +31,7 @@ const support = (state = null, action) => {
     
     // Conditional to handle support dispatch
     if (action.type === 'SUPPORT') {
-        console.log('support');
+        return action.payload;
     }
 
     return state;
@@ -41,7 +41,7 @@ const comments = (state = '', action) => {
 
     // Conditional to handle comments dispatch
     if (action.type === 'COMMENTS') {
-        console.log('comments!!');
+        return action.payload;
     }
 
     return state;
