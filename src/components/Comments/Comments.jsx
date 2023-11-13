@@ -1,5 +1,6 @@
 import { Button, TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
-import { NavigateNext } from "@mui/icons-material";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import NextButton from "../NextButton/NextButton";
 import { useSelector, useDispatch } from 'react-redux';
@@ -34,7 +35,10 @@ function Comments() {
                             label='Comments?'
                             onChange={e => setNewComments(e.target.value)}
                         />
-                        <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                            <Button variant="outlined" onClick={e => history.push('/support')} startIcon={<ArrowBackIcon />}>Back</Button>
+                            <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
+                        </div>
                     </CardContent>
                 </Card>
             </Paper>
