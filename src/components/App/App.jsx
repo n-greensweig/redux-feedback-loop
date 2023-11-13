@@ -8,6 +8,8 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support'
 import Comments from '../Comments/Comments';
 import Submission from '../Submission/Submission';
+import Home from '../Home/Home';
+
 import { Grid, Paper, Card, CardContent } from '@mui/material';
 
 function App() {
@@ -26,13 +28,17 @@ function App() {
     <>
       <div className='App'>
         <header className='App-header'>
-          <h1 className='App-title'>Feedback!</h1>
+          <h1 className='App-title'>Stream</h1>
         </header>
       </div>
 
       <Router>
 
         {/* Add home page to navigate to /feeling and return to from /submission */}
+
+        <Route exact path='/'>
+          <Home />
+        </Route>
 
         <Grid container spacing={2}>
 

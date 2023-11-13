@@ -33,7 +33,7 @@ function Submission() {
                 alert('Something went wrong.');
             });
 
-        history.push('/feeling');
+        history.push('/');
 
     };
 

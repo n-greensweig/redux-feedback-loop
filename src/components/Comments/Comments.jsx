@@ -32,8 +32,11 @@ function Comments() {
                     <CardContent>
                         <Typography sx={{ fontWeight: 'bold' }}>Any comments you want to leave?</Typography>
                         <TextField type="text"
-                            label='Comments?'
+                            label='Comments'
+                            multiline
+                            rows={6}
                             onChange={e => setNewComments(e.target.value)}
+                            sx={{width: '75%'}}
                         />
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <Button variant="outlined" onClick={e => history.push('/support')} startIcon={<ArrowBackIcon />}>Back</Button>
