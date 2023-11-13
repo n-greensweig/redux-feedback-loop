@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import { NavigateNext } from "@mui/icons-material";
 
 import NextButton from "../NextButton/NextButton";
@@ -25,15 +25,20 @@ function Comments() {
     };
 
     return (
-        <>
-            <h1>Any comments you want to leave?</h1>
-            <TextField type="text"
-                label='Comments?'
-                onChange={e => setNewComments(e.target.value)}
-            />
-            <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
-            {/* <NextButton handleClick={handleClick} path={'submission'} /> */}
-        </>
+        <Grid item xs={12} md={6}>
+            <Paper elevation={5}>
+                <Card>
+                    <CardContent>
+                        <Typography sx={{ fontWeight: 'bold' }}>Any comments you want to leave?</Typography>
+                        <TextField type="text"
+                            label='Comments?'
+                            onChange={e => setNewComments(e.target.value)}
+                        />
+                        <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
+                    </CardContent>
+                </Card>
+            </Paper>
+        </Grid>
     )
 
 }

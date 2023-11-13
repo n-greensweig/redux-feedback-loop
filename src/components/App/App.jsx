@@ -8,7 +8,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support'
 import Comments from '../Comments/Comments';
 import Submission from '../Submission/Submission';
-import { FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { Grid, Paper, Card, CardContent } from '@mui/material';
 
 function App() {
 
@@ -34,26 +34,30 @@ function App() {
 
         {/* Add home page to navigate to /feeling and return to from /submission */}
 
-        <form>
+        <Grid container spacing={2}>
 
+          {/* Feeling route */}
           <Route exact path='/feeling'>
             <Feeling />
           </Route>
 
+
+          {/* Understanding route */}
           <Route exact path='/understanding'>
             <Understanding />
           </Route>
 
+          {/* Support route */}
           <Route exact path='/support'>
             <Support />
           </Route>
 
+          {/* Comments route */}
           <Route exact path='/comments'>
             <Comments />
           </Route>
+        </Grid>
 
-        </form>
-        
         <Route exact path='/submission'>
           <Submission />
         </Route>
