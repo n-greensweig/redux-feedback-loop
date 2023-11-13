@@ -20,9 +20,9 @@ function Submission() {
 
         // POST feedback to the database
         axios.post('/feedback', {
-            feeling: feeling,
-            understanding: understanding,
-            support: support,
+            feeling: Number(feeling),
+            understanding: Number(understanding),
+            support: Number(support),
             comments: comments
         })
             .then(response => {
