@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import ReplayIcon from '@mui/icons-material/Replay';
+import swal from "sweetalert";
 
 function Submission() {
 
@@ -26,14 +27,22 @@ function Submission() {
             comments: comments
         })
             .then(response => {
-                console.log('successful POST');
+
+                swal({
+                    title: 'Submission successful',
+                    icon: 'success',
+                    text: 'You are now being re-directed to the home page.',
+                    timer: 2000
+                });
+
+                setTimeout(() => history.push('/'), 2000);
             })
             .catch(error => {
                 console.error(error);
                 alert('Something went wrong.');
             });
 
-        history.push('/');
+
 
     };
 
