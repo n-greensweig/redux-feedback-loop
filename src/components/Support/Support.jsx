@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 import { Button, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
-import { NavigateNext } from "@mui/icons-material";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import swal from 'sweetalert';
 
@@ -51,8 +52,10 @@ function Support() {
                             <FormControlLabel value={4} control={<Radio />} label='4' />
                             <FormControlLabel value={5} control={<Radio />} label='5' />
                         </RadioGroup>
-
-                        <Button variant="outlined" onClick={handleClick} endIcon={<NavigateNext />}>Next</Button>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                            <Button variant="outlined" onClick={e => history.push('/understanding')} startIcon={<ArrowBackIcon />}>Back</Button>
+                            <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
+                        </div>
                     </CardContent>
                 </Card>
             </Paper>
