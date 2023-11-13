@@ -36,9 +36,15 @@ function Feeling() {
 
     };
 
+    const unclick = e => {
+        if (newFeeling) {
+            setNewFeeling(null);
+        }
+    };
+
 
     return (
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} sm={10} md={6} style={{ alignContent: 'center', alignItems: 'center' }}>
             <Paper elevation={5}>
                 <Card>
                     <CardContent>
@@ -48,11 +54,11 @@ function Feeling() {
                             value={newFeeling}
                             onChange={e => setNewFeeling(e.target.value)}
                             row>
-                            <FormControlLabel value={1} control={<Radio />} label='1' />
-                            <FormControlLabel value={2} control={<Radio />} label='2' />
-                            <FormControlLabel value={3} control={<Radio />} label='3' />
-                            <FormControlLabel value={4} control={<Radio />} label='4' />
-                            <FormControlLabel value={5} control={<Radio />} label='5' />
+                            <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
+                            <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
+                            <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />
+                            <FormControlLabel value={4} control={<Radio onClick={unclick} />} label='4' />
+                            <FormControlLabel value={5} control={<Radio onClick={unclick} />} label='5' />
                         </RadioGroup>
 
                         <div style={{ flex: '1', display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>

@@ -34,6 +34,12 @@ function Understanding() {
 
     };
 
+    const unclick = e => {
+        if (newUnderstanding) {
+            setNewUnderstanding(null);
+        }
+    };
+
     return (
         <Grid item xs={12} md={6}>
             <Paper elevation={5}>
@@ -45,11 +51,11 @@ function Understanding() {
                             value={newUnderstanding}
                             onChange={e => setNewUnderstanding(e.target.value)}
                             row>
-                            <FormControlLabel value={1} control={<Radio />} label='1' />
-                            <FormControlLabel value={2} control={<Radio />} label='2' />
-                            <FormControlLabel value={3} control={<Radio />} label='3' />
-                            <FormControlLabel value={4} control={<Radio />} label='4' />
-                            <FormControlLabel value={5} control={<Radio />} label='5' />
+                            <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
+                            <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
+                            <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />
+                            <FormControlLabel value={4} control={<Radio onClick={unclick} />} label='4' />
+                            <FormControlLabel value={5} control={<Radio onClick={unclick} />} label='5' />
                         </RadioGroup>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>

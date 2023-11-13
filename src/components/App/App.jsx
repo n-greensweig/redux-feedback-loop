@@ -34,13 +34,12 @@ function App() {
 
       <Router>
 
-        {/* Add home page to navigate to /feeling and return to from /submission */}
-
+        {/* Home page to navigate to /feeling and return to from /submission */}
         <Route exact path='/'>
           <Home />
         </Route>
 
-        <Grid container spacing={2}>
+        <Grid container spacing={2} alignItems={'center'} justifyContent={'center'} minHeight={'25vh'}>
 
           {/* Feeling route */}
           <Route exact path='/feeling'>
