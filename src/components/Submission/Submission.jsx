@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-import ReplayIcon from '@mui/icons-material/Replay';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import swal from "sweetalert";
 
 function Submission() {
@@ -48,14 +48,13 @@ function Submission() {
 
     return (
         <>
-            <h1>Feedback submitted!</h1>
-            <h2>View your feedback below:</h2>
+            <h2>Review your feedback below:</h2>
             <h3>Feeling: {feeling}</h3>
             <h3>Understanding: {understanding}</h3>
             <h3>Support: {support}</h3>
             <h3>Comments: {comments}</h3>
 
-            <Button variant="outlined" onClick={handleSubmit} endIcon={<ReplayIcon />}>Submit feedback</Button>
+            <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
         </>
     )
 
