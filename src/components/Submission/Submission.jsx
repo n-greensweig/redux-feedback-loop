@@ -4,9 +4,15 @@ import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import swal from "sweetalert";
 
+import Confetti from "react-confetti";
+import { useState } from "react";
+
 function Submission() {
+
+    // const [isConfettiActive, setIsConfettiActive] = useState(false);
 
     const history = useHistory();
 
@@ -27,6 +33,13 @@ function Submission() {
             comments: comments
         })
             .then(response => {
+
+                // const startConfetti = () => {
+                //     setIsConfettiActive(true);
+                //     setTimeout(() => {
+                //         setIsConfettiActive(false)
+                //     }, 3000);
+                // }
 
                 swal({
                     title: 'Submission successful',
@@ -54,7 +67,11 @@ function Submission() {
             <h3>Support: {support}</h3>
             <h3>Comments: {comments}</h3>
 
-            <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                <Button variant="outlined" onClick={e => history.push('/understanding')} startIcon={<ArrowBackIcon />}>Back</Button>
+                <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
+            </div>
+            {/* {isConfettiActive && <Confetti />} */}
         </>
     )
 
