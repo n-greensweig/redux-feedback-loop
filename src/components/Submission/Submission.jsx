@@ -68,7 +68,7 @@ function Submission() {
             <h3>Comments: {comments}</h3>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                <Button variant="outlined" onClick={e => history.push('/understanding')} startIcon={<ArrowBackIcon />}>Back</Button>
+                <Button variant="outlined" onClick={e => history.push('/comments')} startIcon={<ArrowBackIcon />}>Back</Button>
                 <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
             </div>
             {/* {isConfettiActive && <Confetti />} */}

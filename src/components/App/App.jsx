@@ -11,6 +11,7 @@ import Submission from '../Submission/Submission';
 import Home from '../Home/Home';
 
 import { Grid, Paper, Card, CardContent } from '@mui/material';
+import FeedbackTable from '../FeedbackTable/FeedbackTable';
 
 function App() {
 
@@ -65,6 +66,10 @@ function App() {
 
         <Route exact path='/submission'>
           <Submission />
+        </Route>
+
+        <Route exact path='/admin'>
+          <FeedbackTable />
         </Route>
 
       </Router >
