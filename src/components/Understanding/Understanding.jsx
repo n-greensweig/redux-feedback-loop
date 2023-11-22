@@ -45,12 +45,14 @@ function Understanding() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent>
-                        <Typography sx={{ fontWeight: 'bold' }}>How well are you understanding the content?</Typography>
+                        <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%'}} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>How well are you understanding the content?</Typography>
                         <RadioGroup
                             name='newUnderstanding'
                             value={newUnderstanding}
                             onChange={e => setNewUnderstanding(e.target.value)}
-                            row>
+                            row
+                            style={{ alignItems: 'center', justifyContent: 'center', height: '100%'}}
+                            >
                             <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
                             <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
                             <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />

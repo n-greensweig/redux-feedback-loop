@@ -30,13 +30,14 @@ function Comments() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent>
-                        <Typography sx={{ fontWeight: 'bold' }}>Any comments you want to leave?</Typography>
+                        <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%'}} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>Any comments you want to leave?</Typography>
                         <TextField type="text"
                             label='Comments'
                             multiline
                             rows={6}
                             onChange={e => setNewComments(e.target.value)}
-                            sx={{width: '75%'}}
+                            sx={{width: '100%'}}
+                            style={{ justifyContent: 'center', height: '100%', marginBottom: '5%'}}
                         />
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <Button variant="outlined" onClick={e => history.push('/support')} startIcon={<ArrowBackIcon />}>Back</Button>

@@ -48,12 +48,14 @@ function Feeling() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent>
-                        <Typography sx={{ fontWeight: 'bold' }}>How are you feeling today?</Typography>
+                        <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%'}} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>How are you feeling today?</Typography>
                         <RadioGroup
                             name='newFeeling'
                             value={newFeeling}
                             onChange={e => setNewFeeling(e.target.value)}
-                            row>
+                            row
+                            style={{ alignItems: 'center', justifyContent: 'center', height: '100%'}}
+                            >
                             <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
                             <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
                             <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />

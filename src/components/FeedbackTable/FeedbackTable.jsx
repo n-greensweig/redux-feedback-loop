@@ -27,7 +27,7 @@ function FeedbackTable() {
     return (
         <>
             <h1>Admin</h1>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} style={{margin: '20px', maxHeight: '400px', overflowY: 'auto'}}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
