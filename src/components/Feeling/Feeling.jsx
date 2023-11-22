@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import { Button, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import swal from 'sweetalert';
 
@@ -48,14 +49,14 @@ function Feeling() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent>
-                        <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%'}} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>How are you feeling today?</Typography>
+                        <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>How are you feeling today?</Typography>
                         <RadioGroup
                             name='newFeeling'
                             value={newFeeling}
                             onChange={e => setNewFeeling(e.target.value)}
                             row
-                            style={{ alignItems: 'center', justifyContent: 'center', height: '100%'}}
-                            >
+                            style={{ alignItems: 'center', justifyContent: 'center', height: '100%' }}
+                        >
                             <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
                             <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
                             <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />
@@ -63,7 +64,8 @@ function Feeling() {
                             <FormControlLabel value={5} control={<Radio onClick={unclick} />} label='5' />
                         </RadioGroup>
 
-                        <div style={{ flex: '1', display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                            <Button variant="outlined" onClick={e => history.push('/name')} startIcon={<ArrowBackIcon />}>Back</Button>
                             <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
                         </div>
                     </CardContent>

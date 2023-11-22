@@ -7,6 +7,16 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
+const name = (state = null, action) => {
+
+    // Conditional to handle name dispatch
+    if (action.type === 'NAME') {
+        return action.payload;
+    }
+
+    return state;
+};
+
 const feeling = (state = null, action) => {
 
     // Conditional to handle feeling dispatch
@@ -49,6 +59,7 @@ const comments = (state = '', action) => {
 
 const reduxStore = createStore(
     combineReducers({
+        name,
         feeling,
         understanding,
         support,

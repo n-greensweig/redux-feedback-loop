@@ -17,6 +17,7 @@ function Submission() {
     const history = useHistory();
 
     // Link local variables to global reducers
+    const name = useSelector(store => store.name);
     const feeling = useSelector(store => store.feeling);
     const understanding = useSelector(store => store.understanding);
     const support = useSelector(store => store.support);
@@ -27,6 +28,7 @@ function Submission() {
 
         // POST feedback to the database
         axios.post('/feedback', {
+            name: name,
             feeling: Number(feeling),
             understanding: Number(understanding),
             support: Number(support),
@@ -62,6 +64,7 @@ function Submission() {
     return (
         <>
             <h2>Review your feedback below:</h2>
+            <h3>Name: {name}</h3>
             <h3>Feeling: {feeling}</h3>
             <h3>Understanding: {understanding}</h3>
             <h3>Support: {support}</h3>

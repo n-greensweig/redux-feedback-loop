@@ -13,7 +13,7 @@ function Home() {
                     <Card>
                         <CardContent>
                             <Typography sx={{ fontWeight: 'bold' }}>Submit a new feedback form 😁</Typography>
-                            <Button variant="outlined" onClick={e => history.push('/feeling')} endIcon={<ArrowForwardIcon />}>Start survey</Button>
+                            <Button variant="outlined" onClick={e => history.push('/name')} endIcon={<ArrowForwardIcon />}>Start survey</Button>
                         </CardContent>
                     </Card>
                 </Paper>
