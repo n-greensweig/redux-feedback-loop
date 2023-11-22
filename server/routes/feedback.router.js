@@ -2,6 +2,21 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+// GET request to get user data
+router.get('/', (req, res) => {
+
+    let queryText = `SELECT * FROM "feedback" ORDER BY "id" DESC;`;
+    pool.query(queryText)
+        .then(result => {
+            res.send(result.rows);
+        })
+        .catch(error => {
+            console.error('Error getting results from DB', error);
+            res.sendStatus(400);
+        });
+
+})
+
 // POST request handling user submission
 router.post('/', (req, res) => {
 
