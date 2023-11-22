@@ -20,13 +20,15 @@ router.get('/', (req, res) => {
 // POST request handling user submission
 router.post('/', (req, res) => {
 
-    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-    VALUES ($1, $2, $3, $4);`;
+    let queryText = `INSERT INTO "feedback" ("name", "feeling", "understanding", "support", "comments")
+    VALUES ($1, $2, $3, $4, $5);`;
 
-    pool.query(queryText, [req.body.feeling,
-    req.body.understanding,
-    req.body.support,
-    req.body.comments])
+    pool.query(queryText, [
+        req.body.name,
+        req.body.feeling,
+        req.body.understanding,
+        req.body.support,
+        req.body.comments])
         .then(result => {
             res.sendStatus(200);
             console.log('POST successful.');

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function FeedbackTable() {
 
-    const [rows, setRows] = useState([]);
+    const [responses, setResponses] = useState([]);
 
     // GET request displaying the existing feedback in an MUI table,
     // with the most recent feedback appearing at the top of the list
@@ -12,7 +12,7 @@ function FeedbackTable() {
     const getFeedback = () => {
         axios.get('/feedback')
             .then(response => {
-                setRows(response.data);
+                setResponses(response.data);
             })
             .catch(error => {
                 console.error(error);
@@ -31,6 +31,7 @@ function FeedbackTable() {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell>Respondent</TableCell>
                             <TableCell>Feeling</TableCell>
                             <TableCell>Understanding</TableCell>
                             <TableCell>Support</TableCell>
@@ -38,12 +39,13 @@ function FeedbackTable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map(row => (
+                        {responses.map(response => (
                             <TableRow>
-                                <TableCell>{row.feeling}</TableCell>
-                                <TableCell>{row.understanding}</TableCell>
-                                <TableCell>{row.support}</TableCell>
-                                <TableCell>{row.comments}</TableCell>
+                                <TableCell>{response.name}</TableCell>
+                                <TableCell>{response.feeling}</TableCell>
+                                <TableCell>{response.understanding}</TableCell>
+                                <TableCell>{response.support}</TableCell>
+                                <TableCell>{response.comments}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

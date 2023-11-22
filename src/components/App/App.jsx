@@ -9,6 +9,7 @@ import Support from '../Support/Support'
 import Comments from '../Comments/Comments';
 import Submission from '../Submission/Submission';
 import Home from '../Home/Home';
+import Name from '../Name/Name';
 
 import { Grid, Paper, Card, CardContent } from '@mui/material';
 import FeedbackTable from '../FeedbackTable/FeedbackTable';
@@ -41,6 +42,11 @@ function App() {
         </Route>
 
         <Grid container spacing={2} alignItems={'center'} justifyContent={'center'} minHeight={'25vh'}>
+
+          {/* Name route */}
+          <Route exact path='/name'>
+            <Name />
+          </Route>
 
           {/* Feeling route */}
           <Route exact path='/feeling'>
