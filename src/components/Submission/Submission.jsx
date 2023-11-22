@@ -8,11 +8,15 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import swal from "sweetalert";
 
 import Confetti from "react-confetti";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Submission() {
 
-    // const [isConfettiActive, setIsConfettiActive] = useState(false);
+    const [isConfettiActive, setIsConfettiActive] = useState(false);
+    const [confettiDimensions, setConfettiDimensions] = useState([{
+        width: window.innerWidth,
+        height: window.innerHeight,
+    }]);
 
     const history = useHistory();
 
@@ -36,21 +40,19 @@ function Submission() {
         })
             .then(response => {
 
-                // const startConfetti = () => {
-                //     setIsConfettiActive(true);
-                //     setTimeout(() => {
-                //         setIsConfettiActive(false)
-                //     }, 3000);
-                // }
+                setIsConfettiActive(true);
+                setTimeout(() => {
+                    setIsConfettiActive(false)
+                }, 10000);
 
                 swal({
                     title: 'Submission successful',
                     icon: 'success',
                     text: 'You are now being re-directed to the home page.',
-                    timer: 2000
+                    timer: 10000
                 });
 
-                setTimeout(() => history.push('/'), 2000);
+                setTimeout(() => history.push('/'), 10000);
             })
             .catch(error => {
                 console.error(error);
@@ -61,8 +63,27 @@ function Submission() {
 
     };
 
+
+
+    const updateConfettiDimensions = () => {
+        setConfettiDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', updateConfettiDimensions);
+
+        return () => {
+            window.removeEventListener('resize', updateConfettiDimensions);
+        }
+    }, []);
+
+
     return (
         <>
+            {isConfettiActive && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={true} />}
             <h2>Review your feedback below:</h2>
             <h3>Name: {name}</h3>
             <h3>Feeling: {feeling}</h3>
@@ -74,7 +95,6 @@ function Submission() {
                 <Button variant="outlined" onClick={e => history.push('/comments')} startIcon={<ArrowBackIcon />}>Back</Button>
                 <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
             </div>
-            {/* {isConfettiActive && <Confetti />} */}
         </>
     )
 

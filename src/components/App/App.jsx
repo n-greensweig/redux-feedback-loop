@@ -16,16 +16,6 @@ import FeedbackTable from '../FeedbackTable/FeedbackTable';
 
 function App() {
 
-  // Connect local variable to reducers
-  const feeling = useSelector(store => store.feeling);
-  const understanding = useSelector(store => store.understanding);
-  const support = useSelector(store => store.support);
-  const comments = useSelector(store => store.comments);
-
-  // Dispatch
-  const dispatch = useDispatch();
-
-
   return (
     <>
       <div className='App'>
