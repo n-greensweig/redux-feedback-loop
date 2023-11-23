@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import BackButton from "../BackButton/BackButton";
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import swal from 'sweetalert';
 
 function Name() {
 
@@ -16,10 +16,17 @@ function Name() {
 
     const handleClick = (e) => {
 
-        e.preventDefault();
-        const action = { type: 'NAME', payload: newName };
-        dispatch(action);
-        history.push('/feeling');
+        if (newName === null) {
+            swal({
+                text: 'Please provide your name!',
+                icon: 'warning'
+            });
+        } else {
+            e.preventDefault();
+            const action = { type: 'NAME', payload: newName };
+            dispatch(action);
+            history.push('/feeling');
+        }
 
     }
 
@@ -49,7 +56,6 @@ function Name() {
                         />
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <BackButton route={'/'} />
-                            {/* <Button variant="outlined" onClick={e => history.push('/')} startIcon={<ArrowBackIcon />}>Back</Button> */}
                             <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
                         </div>
                     </CardContent>

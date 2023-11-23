@@ -92,7 +92,7 @@ function Submission() {
             <h3>Comments: {comments}</h3>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-            <BackButton route={'/comments'} />
+                <BackButton route={'/comments'} />
                 <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
             </div>
         </>
