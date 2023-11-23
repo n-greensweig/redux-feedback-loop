@@ -5,9 +5,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import { Button, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
 import swal from 'sweetalert';
+import BackButton from "../BackButton/BackButton";
 
 function Feeling() {
 
@@ -65,7 +64,7 @@ function Feeling() {
                         </RadioGroup>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                            <Button variant="outlined" onClick={e => history.push('/name')} startIcon={<ArrowBackIcon />}>Back</Button>
+                            <BackButton route={'/name'} />
                             <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
                         </div>
                     </CardContent>

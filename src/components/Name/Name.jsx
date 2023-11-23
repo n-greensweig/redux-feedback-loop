@@ -2,6 +2,7 @@ import { Button, TextField, Grid, Paper, Card, CardContent, Typography } from "@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import BackButton from "../BackButton/BackButton";
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -38,7 +39,7 @@ function Name() {
                             component="div"
                             sx={{ fontWeight: 'bold', mb: 2 }}>
                             Full name
-                            </Typography>
+                        </Typography>
                         <TextField type="text"
                             label='Name'
                             rows={1}
@@ -47,7 +48,8 @@ function Name() {
                             style={{ justifyContent: 'center', height: '100%', marginBottom: '5%' }}
                         />
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                            <Button variant="outlined" onClick={e => history.push('/')} startIcon={<ArrowBackIcon />}>Back</Button>
+                            <BackButton route={'/'} />
+                            {/* <Button variant="outlined" onClick={e => history.push('/')} startIcon={<ArrowBackIcon />}>Back</Button> */}
                             <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
                         </div>
                     </CardContent>

@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import BackButton from "../BackButton/BackButton";
 import swal from "sweetalert";
 
 import Confetti from "react-confetti";
@@ -92,7 +92,7 @@ function Submission() {
             <h3>Comments: {comments}</h3>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                <Button variant="outlined" onClick={e => history.push('/comments')} startIcon={<ArrowBackIcon />}>Back</Button>
+            <BackButton route={'/comments'} />
                 <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
             </div>
         </>
