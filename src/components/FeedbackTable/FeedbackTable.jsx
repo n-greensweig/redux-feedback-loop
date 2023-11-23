@@ -38,37 +38,49 @@ function FeedbackTable() {
         setSortedColumn(columnId);
     };
 
+    // Sort function
     const sortedResponses = [...responses].sort((a, b) => {
 
-        const columnA = a[sortedColumn];
-        const columnB = b[sortedColumn];
+        // Get current column's values for the two rows being compared
+        const columnAValue = a[sortedColumn]; // Value of columnAValue for row a
+        const columnBValue = b[sortedColumn]; // Value of columnBValue for row b
 
-        const isNumeric = value => !isNaN(parseFloat(value)) && isFinite(value);
+        // Check if a value is numeric
+        const isNumeric = (value) => !isNaN(parseFloat(value)) && isFinite(value);
 
-        const isNumericA = isNumeric(columnA);
-        const isNumericB = isNumeric(columnB);
+        // Check if both values are numeric
+        const isNumericA = isNumeric(columnAValue);
+        const isNumericB = isNumeric(columnBValue);
 
+        // Compare them as numbers if both values are numbers
         if (isNumericA && isNumericB) {
 
-            if (sortOrder === 'asc') {
-                return parseFloat(columnA) - parseFloat(columnB);
+            if (sortOrder === "asc") {
+                // Sort ascending
+                return parseFloat(columnAValue) - parseFloat(columnBValue);
             } else {
-                return parseFloat(columnB) - parseFloat(columnA);
+                // Sort descending
+                return parseFloat(columnBValue) - parseFloat(columnAValue);
             }
 
         } else {
-            if (typeof columnA === 'string' && typeof columnB === 'string') {
+            // Compare as strings if both values are strings
+            if (typeof columnAValue === "string" && typeof columnBValue === "string") {
 
-                if (sortOrder === 'asc') {
-                    return columnA.localeCompare(columnB);
+                if (sortOrder === "asc") {
+                    // Sort ascending
+                    return columnAValue.localeCompare(columnBValue);
                 } else {
-                    return columnB.localeCompare(columnA);
+                    // Sort descending
+                    return columnBValue.localeCompare(columnAValue);
                 }
             } else {
+                // Return 0 if value types are different
                 return 0;
             }
         }
     });
+
 
     return (
         <>
