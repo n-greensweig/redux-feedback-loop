@@ -65,7 +65,7 @@ const comments = (state = '', action) => {
 const feedbackList = (state = [], action) => {
 
     if (action.type === 'SET_FEEDBACK') {
-        return action.payload
+        return action.payload;
     }
 
     return state;
@@ -81,7 +81,7 @@ function* fetchFeedback() {
         yield put(action);
     } catch (error) {
         console.error('Error fetching feedback', error);
-        alert('Something went wrong.')
+        alert('Something went wrong.');
     }
 
 }
