@@ -41,18 +41,18 @@ function FeedbackTable() {
     // Sort function
     const sortedResponses = [...responses].sort((a, b) => {
 
-        // Get current column's values for the two rows being compared
+        // Get current column values for  two rows being compared
         const columnAValue = a[sortedColumn]; // Value of columnAValue for row a
         const columnBValue = b[sortedColumn]; // Value of columnBValue for row b
 
-        // Check if a value is numeric
+        // Check if value is numeric
         const isNumeric = (value) => !isNaN(parseFloat(value)) && isFinite(value);
 
         // Check if both values are numeric
         const isNumericA = isNumeric(columnAValue);
         const isNumericB = isNumeric(columnBValue);
 
-        // Compare them as numbers if both values are numbers
+        // Compare as numbers if both values are numbers
         if (isNumericA && isNumericB) {
 
             if (sortOrder === "asc") {
