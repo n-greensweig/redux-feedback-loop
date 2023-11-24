@@ -1,10 +1,13 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function FeedbackTable() {
 
-    const [responses, setResponses] = useState([]);
+    const dispatch = useDispatch();
+    const feedbackList = useSelector(store => store.feedbackList);
+
     const [sortOrder, setSortOrder] = useState('asc');
     const [sortedColumn, setSortedColumn] = useState('id');
 
@@ -16,20 +19,8 @@ function FeedbackTable() {
         { id: 'comments', label: 'Comments' },
     ];
 
-    // GET request to display feedback sorted by id DESC
-    const getFeedback = () => {
-        axios.get('/feedback')
-            .then(response => {
-                setResponses(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-                alert('Something went wrong.')
-            });
-    }
-
     useEffect(() => {
-        getFeedback();
+        dispatch({ type: 'FETCH_FEEDBACK' })
     }, []);
 
     const handleSort = columnId => {
@@ -39,7 +30,7 @@ function FeedbackTable() {
     };
 
     // Sort function
-    const sortedResponses = [...responses].sort((a, b) => {
+    const sortedResponses = [...feedbackList].sort((a, b) => {
 
         // Get current column values for  two rows being compared
         const columnAValue = a[sortedColumn]; // Value of columnAValue for row a

@@ -8,7 +8,9 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
 
 // Saga imports
-
+import createSagaMiddleware from 'redux-saga';
+import { takeEvery, put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
 
 const name = (state = null, action) => {
 
@@ -31,7 +33,7 @@ const feeling = (state = null, action) => {
 };
 
 const understanding = (state = null, action) => {
-    
+
     // Conditional to handle understanding dispatch
     if (action.type === 'UNDERSTANDING') {
         return action.payload;
@@ -41,7 +43,7 @@ const understanding = (state = null, action) => {
 };
 
 const support = (state = null, action) => {
-    
+
     // Conditional to handle support dispatch
     if (action.type === 'SUPPORT') {
         return action.payload;
@@ -60,6 +62,37 @@ const comments = (state = '', action) => {
     return state;
 };
 
+const feedbackList = (state = [], action) => {
+
+    if (action.type === 'SET_FEEDBACK') {
+        return action.payload
+    }
+
+    return state;
+
+};
+
+
+function* fetchFeedback() {
+
+    try {
+        const response = yield axios.get('/feedback');
+        const action = { type: 'SET_FEEDBACK', payload: response.data };
+        yield put(action);
+    } catch (error) {
+        console.error('Error fetching feedback', error);
+        alert('Something went wrong.')
+    }
+
+}
+
+
+function* rootSaga() {
+    yield takeEvery('FETCH_FEEDBACK', fetchFeedback);
+}
+
+const sagaMiddleware = createSagaMiddleware();
+
 const reduxStore = createStore(
     combineReducers({
         name,
@@ -67,9 +100,12 @@ const reduxStore = createStore(
         understanding,
         support,
         comments,
+        feedbackList,
     }),
-    applyMiddleware(logger)
+    applyMiddleware(sagaMiddleware, logger)
 );
+
+sagaMiddleware.run(rootSaga);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
