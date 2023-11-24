@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -11,6 +11,8 @@ import Confetti from "react-confetti";
 import { useEffect, useState } from "react";
 
 function Submission() {
+
+    const dispatch = useDispatch();
 
     const [isConfettiActive, setIsConfettiActive] = useState(false);
     const [confettiDimensions, setConfettiDimensions] = useState([{
@@ -30,7 +32,10 @@ function Submission() {
     // Handle submit function with /feedback POST request to database
     const handleSubmit = e => {
 
+        e.preventDefault();
+
         // POST feedback to the database
+        // Leaving here for now due to swal and confetti effects
         axios.post('/feedback', {
             name: name,
             feeling: Number(feeling),
@@ -83,7 +88,7 @@ function Submission() {
 
     return (
         <>
-            {isConfettiActive && <Confetti width={window.innerWidth} height={window.innerHeight} recycle={true} />}
+            {isConfettiActive && <Confetti {...confettiDimensions} /*width={window.innerWidth} height={window.innerHeight}*/ recycle={true} />}
             <h2>Review your feedback below:</h2>
             <h3>Name: {name}</h3>
             <h3>Feeling: {feeling}</h3>
