@@ -27,11 +27,11 @@ function App() {
       <Router>
 
         {/* Home page to navigate to /feeling and return to from /submission */}
-        <Route exact path='/'>
-          <Home />
-        </Route>
-
         <Grid container spacing={2} alignItems={'center'} justifyContent={'center'} minHeight={'25vh'}>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+
 
           {/* Name route */}
           <Route exact path='/name'>
@@ -58,11 +58,12 @@ function App() {
           <Route exact path='/comments'>
             <Comments />
           </Route>
-        </Grid>
 
-        <Route exact path='/submission'>
-          <Submission />
-        </Route>
+          <Route exact path='/submission'>
+            <Submission />
+          </Route>
+
+        </Grid>
 
         <Route exact path='/admin'>
           <FeedbackTable />

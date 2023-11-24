@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { Button } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Button, CardContent, Card, Paper, Grid, Typography } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -11,8 +11,6 @@ import Confetti from "react-confetti";
 import { useEffect, useState } from "react";
 
 function Submission() {
-
-    const dispatch = useDispatch();
 
     const [isConfettiActive, setIsConfettiActive] = useState(false);
     const [confettiDimensions, setConfettiDimensions] = useState([{
@@ -31,8 +29,6 @@ function Submission() {
 
     // Handle submit function with /feedback POST request to database
     const handleSubmit = e => {
-
-        e.preventDefault();
 
         // POST feedback to the database
         // Leaving here for now due to swal and confetti effects
@@ -88,18 +84,28 @@ function Submission() {
 
     return (
         <>
-            {isConfettiActive && <Confetti {...confettiDimensions} /*width={window.innerWidth} height={window.innerHeight}*/ recycle={true} />}
-            <h2>Review your feedback below:</h2>
-            <h3>Name: {name}</h3>
-            <h3>Feeling: {feeling}</h3>
-            <h3>Understanding: {understanding}</h3>
-            <h3>Support: {support}</h3>
-            <h3>Comments: {comments}</h3>
+            {isConfettiActive && <Confetti {...confettiDimensions} recycle={true} />}
+            <Grid item xs={12} md={6}>
+                <Paper elevation={5}>
+                    <Card>
+                        <CardContent>
+                            <Typography variant="h4" textAlign={'center'}>Review your feedback below:</Typography>
+                            <div style={{marginTop: '2rem', marginBottom: '2rem', textAlign: 'center'}}>
+                                <Typography variant="h5" marginBottom={'1rem'}><b>Name:</b> {name}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'}><b>Feeling:</b> {feeling}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'}><b>Understanding:</b> {understanding}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'}><b>Support:</b> {support}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'}><b>Comments:</b> {comments}</Typography>
+                            </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                <BackButton route={'/comments'} />
-                <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
-            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                                <BackButton route={'/comments'} />
+                                <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </Paper>
+            </Grid>
         </>
     )
 
