@@ -1,6 +1,6 @@
 import { Button, TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import BackButton from "../BackButton/BackButton";
 
@@ -11,12 +11,14 @@ function Name() {
 
     const history = useHistory();
 
-    const [newName, setNewName] = useState('');
+    const storedName = useSelector(state => state.name);
+
+    const [newName, setNewName] = useState(storedName || '');
     const dispatch = useDispatch();
 
     const handleClick = (e) => {
 
-        if (newName === null) {
+        if (newName === '') {
             swal({
                 text: 'Please provide your name!',
                 icon: 'warning'
@@ -51,6 +53,7 @@ function Name() {
                             label='Name'
                             rows={1}
                             onChange={e => setNewName(e.target.value)}
+                            defaultValue={newName}
                             sx={{ width: '100%' }}
                             style={{ justifyContent: 'center', height: '100%', marginBottom: '5%' }}
                         />

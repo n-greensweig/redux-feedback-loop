@@ -20,6 +20,8 @@ const name = (state = null, action) => {
     // Conditional to handle name dispatch
     if (action.type === 'NAME') {
         return action.payload;
+    } else if (action.type === 'SUBMIT') {
+        return null;
     }
 
     return state;
@@ -30,6 +32,8 @@ const feeling = (state = null, action) => {
     // Conditional to handle feeling dispatch
     if (action.type === 'FEELING') {
         return action.payload;
+    } else if (action.type === 'SUBMIT') {
+        return null;
     }
 
     return state;
@@ -40,6 +44,8 @@ const understanding = (state = null, action) => {
     // Conditional to handle understanding dispatch
     if (action.type === 'UNDERSTANDING') {
         return action.payload;
+    } else if (action.type === 'SUBMIT') {
+        return null;
     }
 
     return state;
@@ -50,6 +56,8 @@ const support = (state = null, action) => {
     // Conditional to handle support dispatch
     if (action.type === 'SUPPORT') {
         return action.payload;
+    } else if (action.type === 'SUBMIT') {
+        return null;
     }
 
     return state;
@@ -60,6 +68,8 @@ const comments = (state = '', action) => {
     // Conditional to handle comments dispatch
     if (action.type === 'COMMENTS') {
         return action.payload;
+    } else if (action.type === 'SUBMIT') {
+        return null;
     }
 
     return state;

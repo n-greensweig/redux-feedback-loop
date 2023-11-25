@@ -12,8 +12,10 @@ function Feeling() {
 
     const history = useHistory();
 
+    const storedFeeling = useSelector(state => state.feeling);
+
     // Add feeling dispatch
-    const [newFeeling, setNewFeeling] = useState(null);
+    const [newFeeling, setNewFeeling] = useState(storedFeeling || null);
 
     // Dispatch
     const dispatch = useDispatch();
@@ -53,6 +55,7 @@ function Feeling() {
                             name='newFeeling'
                             value={newFeeling}
                             onChange={e => setNewFeeling(e.target.value)}
+                            defaultValue={newFeeling}
                             row
                             style={{ alignItems: 'center', justifyContent: 'center', height: '100%' }}
                         >

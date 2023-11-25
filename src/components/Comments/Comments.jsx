@@ -11,9 +11,11 @@ function Comments() {
 
     const history = useHistory();
 
+    const storedComments = useSelector(state => state.comments);
+
     // Comments dispactch
     const dispatch = useDispatch();
-    const [newComments, setNewComments] = useState('');
+    const [newComments, setNewComments] = useState(storedComments || '');
 
     // Function to handle click of 'Next' button
     const handleClick = (e) => {
@@ -36,6 +38,7 @@ function Comments() {
                             multiline
                             rows={6}
                             onChange={e => setNewComments(e.target.value)}
+                            defaultValue={newComments}
                             sx={{ width: '100%' }}
                             style={{ justifyContent: 'center', height: '100%', marginBottom: '5%' }}
                         />

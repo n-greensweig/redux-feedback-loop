@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, CardContent, Card, Paper, Grid, Typography } from "@mui/material";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -19,6 +19,7 @@ function Submission() {
     }]);
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
     // Link local variables to global reducers
     const name = useSelector(store => store.name);
@@ -41,6 +42,8 @@ function Submission() {
         })
             .then(response => {
 
+                const action = { type: 'SUBMIT' };
+                dispatch(action);
                 setIsConfettiActive(true);
                 setTimeout(() => {
                     setIsConfettiActive(false)
@@ -90,7 +93,7 @@ function Submission() {
                     <Card>
                         <CardContent>
                             <Typography variant="h4" textAlign={'center'}>Review your feedback below:</Typography>
-                            <div style={{marginTop: '2rem', marginBottom: '2rem', textAlign: 'center'}}>
+                            <div style={{ marginTop: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
                                 <Typography variant="h5" marginBottom={'1rem'}><b>Name:</b> {name}</Typography>
                                 <Typography variant="h5" marginBottom={'1rem'}><b>Feeling:</b> {feeling}</Typography>
                                 <Typography variant="h5" marginBottom={'1rem'}><b>Understanding:</b> {understanding}</Typography>

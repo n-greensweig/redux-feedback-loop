@@ -1,6 +1,5 @@
-import NextButton from "../NextButton/NextButton";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import { Button, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
@@ -13,9 +12,11 @@ function Support() {
 
     const history = useHistory();
 
+    const storedSupport = useSelector(state => state.support);
+
     // Support dispatch
     const dispatch = useDispatch();
-    const [newSupport, setNewSupport] = useState(null);
+    const [newSupport, setNewSupport] = useState(storedSupport || null);
 
     // Function to handle click of 'Next' button
     const handleClick = (e) => {
@@ -50,6 +51,7 @@ function Support() {
                             name='newSupport'
                             value={newSupport}
                             onChange={e => setNewSupport(e.target.value)}
+                            defaultValue={newSupport}
                             row
                             style={{ alignItems: 'center', justifyContent: 'center', height: '100%' }}
                         >
