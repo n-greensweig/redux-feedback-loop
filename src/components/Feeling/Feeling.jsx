@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Button, Box, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
-import CircularProgress from '@mui/material/CircularProgress';
+import { Button, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import swal from 'sweetalert';
@@ -42,26 +41,6 @@ function Feeling() {
         if (newFeeling) {
             setNewFeeling(null);
         }
-    };
-
-    const progress = () => {
-        <Box position="relative" display="inline-flex">
-            <CircularProgress variant="determinate" value={20} />
-            <Box
-                top={0}
-                left={0}
-                bottom={0}
-                right={0}
-                position="absolute"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Typography variant="caption" component="div" color="textSecondary">
-                    {`${20}%`}
-                </Typography>
-            </Box>
-        </Box>
     };
 
 
