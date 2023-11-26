@@ -103,7 +103,9 @@ function Submission() {
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                                 <BackButton route={'/comments'} />
-                                <Button variant="outlined" onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
+                                <Button variant="outlined"
+                                    style={{ backgroundColor: '#ffde7a', color: '#900021', borderColor: '#900021' }}
+                                    onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
                             </div>
                         </CardContent>
                     </Card>

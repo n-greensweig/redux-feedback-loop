@@ -63,7 +63,10 @@ function Support() {
                         </RadioGroup>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <BackButton route={'/understanding'} />
-                            <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
+                            <Button variant="outlined"
+                                onClick={handleClick}
+                                style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
+                                endIcon={<ArrowForwardIcon />}>Next</Button>
                         </div>
                     </CardContent>
                 </Card>

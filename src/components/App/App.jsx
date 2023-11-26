@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './App.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support'
@@ -20,7 +18,7 @@ function App() {
     <>
       <div className='App'>
         <header className='App-header'>
-          <h1 className='App-title'>Stream</h1>
+          <h1 className='App-title'>E-val</h1>
         </header>
       </div>
 

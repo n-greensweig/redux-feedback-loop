@@ -7,7 +7,10 @@ function BackButton(props) {
     const history = useHistory();
 
     return (
-        <Button variant='outlined' onClick={e => history.push(props.route)} startIcon={<ArrowBackIcon />}>Back</Button>
+        <Button variant='outlined'
+            style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
+            onClick={e => history.push(props.route)}
+            startIcon={< ArrowBackIcon />}> Back</Button >
     )
 
 }

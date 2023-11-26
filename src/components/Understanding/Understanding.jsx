@@ -65,7 +65,10 @@ function Understanding() {
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <BackButton route={'/feeling'} />
-                            <Button variant="outlined" onClick={handleClick} endIcon={<ArrowForwardIcon />}>Next</Button>
+                            <Button variant="outlined"
+                                style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
+                                onClick={handleClick}
+                                endIcon={<ArrowForwardIcon />}>Next</Button>
                         </div>
                     </CardContent>
                 </Card>
