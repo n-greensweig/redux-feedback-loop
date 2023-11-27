@@ -12,4 +12,3 @@ Eval is a feedback app that allows users to submit their experience across sever
 5. Run npm run server in your terminal
 6. Run npm run client in your terminal
 7. The npm run client command will open up a new browser tab for you
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
