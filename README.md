@@ -13,7 +13,7 @@ E-val is a full stack feedback app that allows users to add comprehensive. It in
 ## Installation
 
 1. Create a database named ```prime_feedback```
-2. Clone the repository: ```git clone https://github.com/n-greensweig/redux-feedback-loop.git```
+2. Fork and clone the repository
 3. The queries in the database.sql file are set up to create all necessary tables and populate the needed data to allow the app to run correctly. The project is built on PostgreSQL, so you will need to have PostgreSQL installed for the app to work. We recommend using Postico to run those queries as that was used to create the queries.
 4. Open up your editor of choice and run an ```npm install```
 5. Next, run ```npm install @mui/material @emotion/react @emotion/styled```, ```npm install @mui/icons-material```, and ```npm install @fontsource/roboto```
