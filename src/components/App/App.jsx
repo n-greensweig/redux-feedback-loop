@@ -9,7 +9,7 @@ import Submission from '../Submission/Submission';
 import Home from '../Home/Home';
 import Name from '../Name/Name';
 
-import { Grid, Paper, Card, CardContent } from '@mui/material';
+import { Grid } from '@mui/material';
 import FeedbackTable from '../FeedbackTable/FeedbackTable';
 
 function App() {

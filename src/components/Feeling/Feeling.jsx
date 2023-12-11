@@ -49,8 +49,21 @@ function Feeling() {
             <Grid item xs={10} md={6} style={{ alignContent: 'center', alignItems: 'center' }}>
                 <Paper elevation={5}>
                     <Card>
-                        <CardContent sx={{textAlign: 'center'}}>
-                            <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>How are you feeling today?</Typography>
+                        <CardContent sx={{ textAlign: 'center' }}>
+                            <Typography style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: '100%',
+                                fontFamily: 'inter'
+                            }}
+                                variant="h5"
+                                component="div"
+                                sx={{
+                                    fontWeight: 'bold',
+                                    mb: 2
+                                }}>How are you feeling today?</Typography>
                             <RadioGroup
                                 name='newFeeling'
                                 value={newFeeling}

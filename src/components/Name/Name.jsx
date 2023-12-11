@@ -43,7 +43,8 @@ function Name() {
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                height: '100%'
+                                height: '100%',
+                                fontFamily: 'inter'
                             }}
                                 variant="h5"
                                 component="div"

@@ -92,13 +92,13 @@ function Submission() {
                 <Paper elevation={5}>
                     <Card>
                         <CardContent>
-                            <Typography variant="h4" textAlign={'center'}>Review your feedback below:</Typography>
+                            <Typography variant="h4" textAlign={'center'} fontFamily={'inter'}>Review your feedback below:</Typography>
                             <div style={{ marginTop: '2rem', marginBottom: '2rem', textAlign: 'center' }}>
-                                <Typography variant="h5" marginBottom={'1rem'}><b>Name:</b> {name}</Typography>
-                                <Typography variant="h5" marginBottom={'1rem'}><b>Feeling:</b> {feeling}</Typography>
-                                <Typography variant="h5" marginBottom={'1rem'}><b>Understanding:</b> {understanding}</Typography>
-                                <Typography variant="h5" marginBottom={'1rem'}><b>Support:</b> {support}</Typography>
-                                <Typography variant="h5" marginBottom={'1rem'}><b>Comments:</b> {comments}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'} fontFamily={'inter'}><b>Name:</b> {name}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'} fontFamily={'inter'}><b>Feeling:</b> {feeling}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'} fontFamily={'inter'}><b>Understanding:</b> {understanding}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'} fontFamily={'inter'}><b>Support:</b> {support}</Typography>
+                                <Typography variant="h5" marginBottom={'1rem'} fontFamily={'inter'}><b>Comments:</b> {comments}</Typography>
                             </div>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>

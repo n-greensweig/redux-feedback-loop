@@ -46,13 +46,14 @@ function Understanding() {
         <Grid item xs={10} md={6}>
             <Paper elevation={5}>
                 <Card>
-                    <CardContent sx={{textAlign: 'center'}}>
+                    <CardContent sx={{ textAlign: 'center' }}>
                         <Typography style={{
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            height: '100%'
+                            height: '100%',
+                            fontFamily: 'inter'
                         }}
                             variant="h5"
                             component="div"

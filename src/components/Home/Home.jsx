@@ -12,7 +12,7 @@ function Home() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                        <Typography sx={{ fontWeight: 'bold' }}>Submit a new feedback form 😁</Typography>
+                        <Typography sx={{ fontWeight: 'bold' }}>Submit a  student feedback form 😁</Typography>
                         <Button variant="outlined"
                             style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
                             onClick={e => history.push('/name')}
