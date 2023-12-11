@@ -18,7 +18,7 @@ function App() {
     <>
       <div className='App'>
         <header className='App-header'>
-          <h1 className='App-title'>E-val</h1>
+          <h1 className='App-title'>Eval Ninja</h1>
         </header>
       </div>
 
