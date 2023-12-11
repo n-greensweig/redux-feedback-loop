@@ -43,11 +43,23 @@ function Understanding() {
     };
 
     return (
-        <Grid item xs={12} md={6}>
+        <Grid item xs={10} md={6}>
             <Paper elevation={5}>
                 <Card>
-                    <CardContent>
-                        <Typography style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>How well are you understanding the content?</Typography>
+                    <CardContent sx={{textAlign: 'center'}}>
+                        <Typography style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100%'
+                        }}
+                            variant="h5"
+                            component="div"
+                            sx={{
+                                fontWeight: 'bold',
+                                mb: 2
+                            }}>How well are you understanding the content?</Typography>
                         <RadioGroup
                             name='newUnderstanding'
                             value={newUnderstanding}

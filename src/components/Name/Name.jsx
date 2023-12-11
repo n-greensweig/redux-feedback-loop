@@ -34,10 +34,10 @@ function Name() {
 
     return (
         <>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={10} md={6}>
                 <Paper elevation={5}>
                     <Card>
-                        <CardContent>
+                        <CardContent sx={{textAlign: 'center'}}>
                             <Typography style={{
                                 display: 'flex',
                                 flexDirection: 'column',

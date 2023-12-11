@@ -88,7 +88,7 @@ function Submission() {
     return (
         <>
             {isConfettiActive && <Confetti {...confettiDimensions} recycle={true} />}
-            <Grid item xs={12} md={6}>
+            <Grid item xs={10} md={6}>
                 <Paper elevation={5}>
                     <Card>
                         <CardContent>

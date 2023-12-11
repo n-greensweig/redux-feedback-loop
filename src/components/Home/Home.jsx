@@ -8,7 +8,7 @@ function Home() {
 
     return (
 
-        <Grid item xs={12} md={6} style={{ textAlign: 'center' }}>
+        <Grid item xs={10} md={6} style={{ textAlign: 'center' }}>
             <Paper elevation={5}>
                 <Card>
                     <CardContent style={{ display: 'flex', justifyContent: 'space-evenly' }}>
