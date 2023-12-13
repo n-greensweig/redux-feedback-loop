@@ -12,7 +12,7 @@ import logger from 'redux-logger';
 
 // Saga imports
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put, takeLatest } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
 const name = (state = null, action) => {

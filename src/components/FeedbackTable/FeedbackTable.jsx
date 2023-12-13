@@ -1,7 +1,10 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel } from "@mui/material";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel, Button } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import swal from "sweetalert";
+
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function FeedbackTable() {
 
@@ -72,11 +75,49 @@ function FeedbackTable() {
         }
     });
 
+    // Come back here to edit
+    const deleteFeedback = (id) => {
+
+        console.log('hey', id);
+        const feedbackId = parseInt(id, 10);
+
+        // Sweet alert to confirm
+        swal({
+            title: 'Are you sure',
+            text: 'Are you sure you want to delete this feedback item?',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then(willDelete => {
+            if (willDelete) {
+                swal('Deleted!', 'This feedback has been deleted!', 'success');
+                
+                axios.delete(`/feedback/${feedbackId}`)
+                    .then(response => {
+                        // GET request for updated feedback list
+                        dispatch({ type: 'FETCH_FEEDBACK' });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert('Something went wrong.');
+                    });
+
+            }
+        })
+
+
+
+    };
 
     return (
         <>
             <h1>Admin</h1>
-            <TableContainer component={Paper} style={{ margin: '20px', maxHeight: '400px', overflowY: 'auto' }}>
+            <TableContainer component={Paper}
+                style={{
+                    margin: '20px',
+                    maxHeight: '400px',
+                    overflowY: 'auto'
+                }}>
                 <Table stickyHeader aria-label="simple table">
                     <TableHead>
                         <TableRow>
@@ -91,6 +132,7 @@ function FeedbackTable() {
                                     </TableSortLabel>
                                 </TableCell>
                             ))}
+                            <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -101,6 +143,9 @@ function FeedbackTable() {
                                 <TableCell>{response.understanding}</TableCell>
                                 <TableCell>{response.support}</TableCell>
                                 <TableCell>{response.comments}</TableCell>
+                                <TableCell>
+                                    {<Button onClick={() => deleteFeedback(response.id)} startIcon={<DeleteIcon style={{ color: 'red' }} />} ></Button>}
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
