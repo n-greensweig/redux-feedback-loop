@@ -11,6 +11,9 @@ function FeedbackTable() {
     const dispatch = useDispatch();
     const feedbackList = useSelector(store => store.feedbackList);
 
+    const storeName = useSelector(store => store.name);
+    const [name, setName] = useState(storeName);
+
     const [sortOrder, setSortOrder] = useState('asc');
     const [sortedColumn, setSortedColumn] = useState('id');
 
@@ -75,10 +78,9 @@ function FeedbackTable() {
         }
     });
 
-    // Come back here to edit
+    // Delete feedback from DB
     const deleteFeedback = (id) => {
 
-        console.log('hey', id);
         const feedbackId = parseInt(id, 10);
 
         // Sweet alert to confirm
@@ -91,7 +93,7 @@ function FeedbackTable() {
         }).then(willDelete => {
             if (willDelete) {
                 swal('Deleted!', 'This feedback has been deleted!', 'success');
-                
+
                 axios.delete(`/feedback/${feedbackId}`)
                     .then(response => {
                         // GET request for updated feedback list
@@ -105,7 +107,27 @@ function FeedbackTable() {
             }
         })
 
+    };
 
+    // PUT request to update name
+    const saveEditedName = (e, id) => {
+
+        if (e.target.value !== '' && e.target.value !== name) {
+
+            axios.put(`/feedback/${id}`, {
+                name: name,
+            })
+                .then(response => {
+                    dispatch({ type: 'FETCH_FEEDBACK' });
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Something went wrong.');
+                });
+
+            e.currentTarget.blur();
+
+        }
 
     };
 
@@ -138,7 +160,23 @@ function FeedbackTable() {
                     <TableBody>
                         {sortedResponses.map(response => (
                             <TableRow key={response.id}>
-                                <TableCell>{response.name}</TableCell>
+                                <TableCell
+                                    contentEditable={true}
+                                    suppressContentEditableWarning={true}
+                                    value={name}
+                                    onInput={e => {
+                                        if (e.currentTarget.textContent !== '') {
+                                            setName(e.currentTarget.textContent)
+                                        }
+                                    }}
+                                    onBlur={e => saveEditedName(e, response.id)}
+                                    onKeyDown={e => {
+                                        if (e.key === 'Enter') {
+                                            e.preventDefault();
+                                            saveEditedName(e, response.id);
+                                        }
+                                    }}
+                                >{response.name}</TableCell>
                                 <TableCell>{response.feeling}</TableCell>
                                 <TableCell>{response.understanding}</TableCell>
                                 <TableCell>{response.support}</TableCell>

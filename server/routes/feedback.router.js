@@ -65,7 +65,7 @@ router.put('/:id', (req, res) => {
     pool.query(queryText, [req.body.name, req.params.id])
         .then(result => {
             res.sendStatus(200);
-            console.log('DELETE successful.');
+            console.log('PUT successful.');
         })
         .catch(error => {
             console.error(error);
