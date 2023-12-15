@@ -110,6 +110,7 @@ function FeedbackTable() {
     };
 
     // PUT request to update name
+    // Problems remain upon clicking to edit a name and then hitting TAB
     const saveEditedName = (e, id) => {
 
         if (e.target.value !== '' && e.target.value !== name) {
