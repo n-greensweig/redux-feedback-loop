@@ -31,13 +31,15 @@ function Submission() {
     // Handle submit function with /feedback POST request to database
     const handleSubmit = e => {
 
+        console.log(feeling);
+
         // POST feedback to the database
         // Leaving here for now due to swal and confetti effects
         axios.post('/feedback', {
             name: name,
-            feeling: Number(feeling),
-            understanding: Number(understanding),
-            support: Number(support),
+            feeling: feeling,
+            understanding: understanding,
+            support: support,
             comments: comments
         })
             .then(response => {

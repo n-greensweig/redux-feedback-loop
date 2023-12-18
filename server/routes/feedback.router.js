@@ -20,14 +20,32 @@ router.get('/', (req, res) => {
 // POST request handling user submission
 router.post('/', (req, res) => {
 
-    let queryText = `INSERT INTO "feedback" ("name", "feeling", "understanding", "support", "comments")
-    VALUES ($1, $2, $3, $4, $5);`;
+    let queryText = `INSERT INTO "feedback" ("name", "feeling_text", "feeling", "understanding_text", "understanding", "support_text", "support", "comments")
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`;
+
+    let feelingValue = (req.body.feeling === 'Very good' ? 5 :
+        (req.body.feeling === 'Good' ? 4 :
+            (req.body.feeling === 'Neutral' ? 3 :
+                (req.body.feeling === 'Bad' ? 2 : 1))));
+
+    let understandingValue = (req.body.understanding === 'Very well' ? 5 :
+        (req.body.understanding === 'Well' ? 4 :
+            (req.body.understanding === 'Neutral' ? 3 :
+                (req.body.understanding === 'Poorly' ? 2 : 1))));
+
+    let supportValue = (req.body.support === 'Very well' ? 5 :
+        (req.body.support === 'Well' ? 4 :
+            (req.body.support === 'Neutral' ? 3 :
+                (req.body.support === 'Poorly' ? 2 : 1))));
 
     pool.query(queryText, [
         req.body.name,
         req.body.feeling,
+        feelingValue,
         req.body.understanding,
+        understandingValue,
         req.body.support,
+        supportValue,
         req.body.comments])
         .then(result => {
             res.sendStatus(200);

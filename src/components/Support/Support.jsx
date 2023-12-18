@@ -69,11 +69,11 @@ function Support() {
                             row
                             style={{ alignItems: 'center', justifyContent: 'center', height: '100%' }}
                         >
-                            <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
-                            <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
-                            <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />
-                            <FormControlLabel value={4} control={<Radio onClick={unclick} />} label='4' />
-                            <FormControlLabel value={5} control={<Radio onClick={unclick} />} label='5' />
+                            <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='Very poorly' labelPlacement='bottom' />
+                            <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='Poorly' labelPlacement='bottom' />
+                            <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='Neutral' labelPlacement='bottom' />
+                            <FormControlLabel value={4} control={<Radio onClick={unclick} />} label='Well' labelPlacement='bottom' />
+                            <FormControlLabel value={5} control={<Radio onClick={unclick} />} label='Very well' labelPlacement='bottom' />
                         </RadioGroup>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <BackButton route={'/understanding'} />

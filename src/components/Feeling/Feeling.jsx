@@ -70,13 +70,13 @@ function Feeling() {
                                 onChange={e => setNewFeeling(e.target.value)}
                                 defaultValue={newFeeling}
                                 row
-                                style={{ alignItems: 'center', justifyContent: 'center', height: '100%' }}
+                                style={{ alignItems: 'center', justifyContent: 'center', height: '100%', marginBottom: '15px' }}
                             >
-                                <FormControlLabel value={1} control={<Radio onClick={unclick} />} label='1' />
-                                <FormControlLabel value={2} control={<Radio onClick={unclick} />} label='2' />
-                                <FormControlLabel value={3} control={<Radio onClick={unclick} />} label='3' />
-                                <FormControlLabel value={4} control={<Radio onClick={unclick} />} label='4' />
-                                <FormControlLabel value={5} control={<Radio onClick={unclick} />} label='5' />
+                                <FormControlLabel value={'Very bad'} control={<Radio onClick={unclick} />} label='Very bad' labelPlacement='bottom' />
+                                <FormControlLabel value={'Bad'} control={<Radio onClick={unclick} />} label='Bad' labelPlacement='bottom' />
+                                <FormControlLabel value={'Neutral'} control={<Radio onClick={unclick} />} label='Neutral' labelPlacement='bottom' />
+                                <FormControlLabel value={'Good'} control={<Radio onClick={unclick} />} label='Good' labelPlacement='bottom' />
+                                <FormControlLabel value={'Very good'} control={<Radio onClick={unclick} />} label='Very good' labelPlacement='bottom' />
                             </RadioGroup>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
