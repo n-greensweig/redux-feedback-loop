@@ -1,4 +1,4 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel, Button } from "@mui/material";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel, Button, useTheme, useMediaQuery, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -132,20 +132,34 @@ function FeedbackTable() {
 
     };
 
+    const theme = useTheme();
+    const isXsScreen = useMediaQuery(theme.breakpoints.down('xs'));
+    const isSmScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <>
-            <h1>Admin</h1>
+            <h2 style={{
+                margin: '0 auto',
+                textAlign: 'center',
+                color: '#7a0019',
+                marginBottom: '1rem',
+                fontSize: '30px',
+            }}>Admin Feedback Table</h2>
             <TableContainer component={Paper}
                 style={{
-                    margin: '20px',
+                    margin: '0 auto',
                     maxHeight: '400px',
-                    overflowY: 'auto'
+                    overflowY: 'auto',
+                    width: '90%',
                 }}>
                 <Table stickyHeader aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             {columns.map((column) => (
-                                <TableCell key={column.id}>
+                                <TableCell
+                                    key={column.id} style={{ padding: isXsScreen || isSmScreen ? 'auto' : '0' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'left' }}
+                                >
                                     <TableSortLabel
                                         active={sortedColumn === column.id}
                                         direction={sortOrder}
@@ -162,6 +176,8 @@ function FeedbackTable() {
                         {sortedResponses.map(response => (
                             <TableRow key={response.id}>
                                 <TableCell
+                                    style={{ padding: '0', paddingLeft: '.5rem' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem' }}
                                     contentEditable={true}
                                     suppressContentEditableWarning={true}
                                     value={name}
@@ -178,18 +194,28 @@ function FeedbackTable() {
                                         }
                                     }}
                                 >{response.name}</TableCell>
-                                <TableCell>{response.feeling}</TableCell>
-                                <TableCell>{response.understanding}</TableCell>
-                                <TableCell>{response.support}</TableCell>
-                                <TableCell>{response.comments}</TableCell>
-                                <TableCell>
+                                <TableCell style={{ padding: '0' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
+                                >{response.feeling}</TableCell>
+                                <TableCell style={{ padding: '0' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
+                                >{response.understanding}</TableCell>
+                                <TableCell style={{ padding: '0' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
+                                >{response.support}</TableCell>
+                                <TableCell style={{ padding: '0' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'left' }}
+                                >{response.comments}</TableCell>
+                                <TableCell style={{ padding: '0' }}
+                                    sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
+                                >
                                     {<Button onClick={() => deleteFeedback(response.id)} startIcon={<DeleteIcon style={{ color: 'red' }} />} ></Button>}
                                 </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer>
+            </TableContainer >
         </>
     )
 
