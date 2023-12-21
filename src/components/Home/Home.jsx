@@ -13,7 +13,7 @@ function Home() {
                 <Card>
                     <CardContent style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                         <Typography sx={{ fontWeight: 'bold' }}>Submit a  student feedback form 😁</Typography>
-                        <NextButton function={e => history.push('/name')} text={'Start survey'} />
+                        <NextButton function={e => history.push('/name')} endIcon={true} text={'Start survey'} />
                     </CardContent>
                 </Card>
             </Paper>

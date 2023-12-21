@@ -76,7 +76,7 @@ function Support() {
                         </RadioGroup>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <BackButton route={'/understanding'} />
-                            <NextButton function={handleClick} text={'Next'} />
+                            <NextButton function={handleClick} endIcon={true} text={'Next'} />
                         </div>
                     </CardContent>
                 </Card>

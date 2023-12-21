@@ -9,6 +9,7 @@ import swal from "sweetalert";
 
 import Confetti from "react-confetti";
 import { useEffect, useState } from "react";
+import NextButton from "../NextButton/NextButton";
 
 function Submission() {
 
@@ -105,9 +106,7 @@ function Submission() {
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                                 <BackButton route={'/comments'} />
-                                <Button variant="outlined"
-                                    style={{ backgroundColor: '#ffde7a', color: '#900021', borderColor: '#900021' }}
-                                    onClick={handleSubmit} startIcon={<ThumbUpIcon />}>Submit feedback</Button>
+                                <NextButton function={handleSubmit} startIcon={true} text={'Submit feedback'} />
                             </div>
                         </CardContent>
                     </Card>
