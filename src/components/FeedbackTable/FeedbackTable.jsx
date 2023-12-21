@@ -144,6 +144,7 @@ function FeedbackTable() {
                 color: '#7a0019',
                 marginBottom: '1rem',
                 fontSize: '30px',
+                fontFamily: 'inter'
             }}>Admin Feedback Table</h2>
             <TableContainer component={Paper}
                 style={{
