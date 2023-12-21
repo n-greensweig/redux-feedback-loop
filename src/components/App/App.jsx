@@ -24,7 +24,7 @@ function App() {
 
       <Router>
 
-        {/* Home page to navigate to /feeling and return to from /submission */}
+        {/* Home page to navigate to /name and return to from /submission */}
         <Grid container spacing={2} alignItems={'center'} justifyContent={'center'} minHeight={'5vh'}>
           <Route exact path='/'>
             <Home />

@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Button, Paper, Typography, Grid, Card, CardContent } from "@mui/material";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Paper, Typography, Grid, Card, CardContent } from "@mui/material";
+import NextButton from "../NextButton/NextButton";
 
 function Home() {
 
@@ -13,10 +13,7 @@ function Home() {
                 <Card>
                     <CardContent style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                         <Typography sx={{ fontWeight: 'bold' }}>Submit a  student feedback form 😁</Typography>
-                        <Button variant="outlined"
-                            style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
-                            onClick={e => history.push('/name')}
-                            endIcon={<ArrowForwardIcon />}>Start survey</Button>
+                        <NextButton function={e => history.push('/name')} text={'Start survey'} />
                     </CardContent>
                 </Card>
             </Paper>

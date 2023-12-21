@@ -1,19 +1,12 @@
-import { NavigateNext } from "@mui/icons-material";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Button } from "@mui/material";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function NextButton(props) {
 
-    const history = useHistory();
-
-    const handleClick = (e) => {
-
-        e.preventDefault();
-        history.push(`/${props.path}`);
-    };
-
     return (
-        <Button variant="outlined" onClick={handleClick} startIcon={<NavigateNext />}>Next</Button>
+        <Button variant="outlined"
+            style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
+            onClick={props.function} endIcon={<ArrowForwardIcon />}>{props.text}</Button>
     )
 
 }

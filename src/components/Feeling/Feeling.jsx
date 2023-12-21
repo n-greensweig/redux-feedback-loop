@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Button, FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
+import { FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import NextButton from "../NextButton/NextButton";
 import swal from 'sweetalert';
 import BackButton from "../BackButton/BackButton";
 
@@ -81,10 +81,7 @@ function Feeling() {
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                                 <BackButton route={'/name'} />
-                                <Button variant="outlined"
-                                    style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
-                                    onClick={handleClick}
-                                    endIcon={<ArrowForwardIcon />}>Next</Button>
+                                <NextButton function={handleClick} text={'Next'} />
                             </div>
                         </CardContent>
                     </Card>

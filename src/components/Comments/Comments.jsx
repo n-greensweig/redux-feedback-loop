@@ -1,5 +1,4 @@
-import { Button, TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import BackButton from "../BackButton/BackButton";
 
 import NextButton from "../NextButton/NextButton";
@@ -57,10 +56,7 @@ function Comments() {
                         />
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                             <BackButton route={'/support'} />
-                            <Button variant="outlined"
-                                style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
-                                onClick={handleClick}
-                                endIcon={<ArrowForwardIcon />}>Next</Button>
+                            <NextButton function={handleClick} text={'Next'} />
                         </div>
                     </CardContent>
                 </Card>

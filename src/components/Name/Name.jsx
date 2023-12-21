@@ -1,10 +1,10 @@
-import { Button, TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
+import { TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import BackButton from "../BackButton/BackButton";
+import NextButton from "../NextButton/NextButton";
 
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import swal from 'sweetalert';
 
 function Name() {
@@ -61,10 +61,7 @@ function Name() {
                             />
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                                 <BackButton route={'/'} />
-                                <Button variant="outlined"
-                                    onClick={handleClick}
-                                    style={{ backgroundColor: 'white', color: '#900021', borderColor: '#900021' }}
-                                    endIcon={<ArrowForwardIcon />}>Next</Button>
+                                <NextButton function={handleClick} text={'Next'} />
                             </div>
                         </CardContent>
                     </Card>
