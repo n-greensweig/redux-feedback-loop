@@ -1,49 +1,60 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
+// React/Redux imports
+import { useSelector, useDispatch } from 'react-redux'; // Importing React-Redux hooks for state management
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"; // Importing React Router hook for navigation
+import { useState } from "react"; // Importing React hook for managing component state
 
-import NextButton from "../NextButton/NextButton";
-import BackButton from "../BackButton/BackButton";
-import swal from 'sweetalert';
-import CardTypography from '../CardTypography/CardTypography';
+// MUI components
+import { FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent } from "@mui/material"; // Importing Material-UI components
+
+// Personally-created React components
+import BackButton from "../BackButton/BackButton"; // Importing a custom BackButton component
+import NextButton from "../NextButton/NextButton"; // Importing a custom NextButton component
+import CardTypography from '../CardTypography/CardTypography'; // Importing a custom CardTypography component
+
+// Sweetalert import
+import swal from 'sweetalert'; // Importing Sweetalert for displaying alerts
 
 function Feeling() {
 
-    const history = useHistory();
+    const history = useHistory(); // Creating a navigation history object
 
-    const storedFeeling = useSelector(state => state.feeling);
+    const storedFeeling = useSelector(state => state.feeling); // Accessing 'feeling' property from Redux store
 
-    // Add feeling dispatch
-    const [newFeeling, setNewFeeling] = useState(storedFeeling || null);
+    // Feeling dispatch
+    const [newFeeling, setNewFeeling] = useState(storedFeeling || null); // Initializing component state for 'newFeeling'
 
     // Dispatch
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); // Creating a Redux dispatch function
 
     // Function to handle click of 'Next' button
     const handleClick = (e) => {
 
         if (newFeeling === null) {
+            // Display a warning alert if 'newFeeling' is null
             swal({
                 text: 'Please select a feeling level!',
                 icon: 'warning'
             });
         } else {
-            e.preventDefault();
+            e.preventDefault(); // Prevent the default form submission
+
+            // Dispatch a Redux action with type 'FEELING' and 'newFeeling' as payload
             const action = { type: 'FEELING', payload: newFeeling };
             dispatch(action);
             console.log(action.payload);
+
+            // Navigate to the '/understanding' route using the 'history' object
             history.push(`/understanding`);
         }
 
     };
 
+    // Function to clear the selection when a radio button is clicked again
     const unclick = e => {
         if (newFeeling) {
             setNewFeeling(null);
         }
     };
-
 
     return (
         <>
@@ -51,11 +62,11 @@ function Feeling() {
                 <Paper elevation={5}>
                     <Card>
                         <CardContent sx={{ textAlign: 'center' }}>
-                            <CardTypography text={'How are you feeling today?'} />
+                            <CardTypography text={'How are you feeling today?'} /> {/* Render a custom CardTypography component */}
                             <RadioGroup
                                 name='newFeeling'
                                 value={newFeeling}
-                                onChange={e => setNewFeeling(e.target.value)}
+                                onChange={e => setNewFeeling(e.target.value)} // Update 'newFeeling' state on radio button change
                                 defaultValue={newFeeling}
                                 row
                                 style={{ alignItems: 'center', justifyContent: 'center', height: '100%', marginBottom: '15px' }}
@@ -68,8 +79,8 @@ function Feeling() {
                             </RadioGroup>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                                <BackButton route={'/name'} />
-                                <NextButton function={handleClick} endIcon={true} text={'Next'} />
+                                <BackButton route={'/name'} /> {/* Render a custom BackButton component */}
+                                <NextButton function={handleClick} endIcon={true} text={'Next'} /> {/* Render a custom NextButton component */}
                             </div>
                         </CardContent>
                     </Card>
@@ -80,4 +91,4 @@ function Feeling() {
 
 }
 
-export default Feeling;
+export default Feeling; // Exporting the 'Feeling' component

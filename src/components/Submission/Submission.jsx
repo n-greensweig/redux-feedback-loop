@@ -1,26 +1,25 @@
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { Button, CardContent, Card, Paper, Grid, Typography } from "@mui/material";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios"; // Importing Axios for making HTTP requests
+import { useDispatch, useSelector } from "react-redux"; // Importing React-Redux hooks for state management
+import { CardContent, Card, Paper, Grid, Typography } from "@mui/material"; // Importing Material-UI components
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"; // Importing React Router hook for navigation
 
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import BackButton from "../BackButton/BackButton";
-import swal from "sweetalert";
+import BackButton from "../BackButton/BackButton"; // Importing a custom BackButton component
+import swal from "sweetalert"; // Importing Sweetalert for displaying alerts
 
-import Confetti from "react-confetti";
-import { useEffect, useState } from "react";
-import NextButton from "../NextButton/NextButton";
+import Confetti from "react-confetti"; // Importing Confetti for celebratory animation
+import { useEffect, useState } from "react"; // Importing React hooks for component lifecycle
+import NextButton from "../NextButton/NextButton"; // Importing a custom NextButton component
 
 function Submission() {
 
-    const [isConfettiActive, setIsConfettiActive] = useState(false);
+    const [isConfettiActive, setIsConfettiActive] = useState(false); // State for controlling Confetti animation
     const [confettiDimensions, setConfettiDimensions] = useState([{
         width: window.innerWidth,
         height: window.innerHeight,
     }]);
 
-    const history = useHistory();
-    const dispatch = useDispatch();
+    const history = useHistory(); // Creating a navigation history object
+    const dispatch = useDispatch(); // Creating a Redux dispatch function
 
     // Link local variables to global reducers
     const name = useSelector(store => store.name);
@@ -29,13 +28,12 @@ function Submission() {
     const support = useSelector(store => store.support);
     const comments = useSelector(store => store.comments);
 
-    // Handle submit function with /feedback POST request to database
+    // Handle submit function with /feedback POST request to the database
     const handleSubmit = e => {
 
         console.log(feeling);
 
         // POST feedback to the database
-        // Leaving here for now due to swal and confetti effects
         axios.post('/feedback', {
             name: name,
             feeling: feeling,
@@ -48,10 +46,13 @@ function Submission() {
                 const action = { type: 'SUBMIT' };
                 dispatch(action);
                 setIsConfettiActive(true);
+
+                // Clear Confetti animation after 5 seconds
                 setTimeout(() => {
                     setIsConfettiActive(false)
                 }, 5000);
 
+                // Display success alert with timer and redirect to home page
                 swal({
                     title: 'Submission successful',
                     icon: 'success',
@@ -59,19 +60,16 @@ function Submission() {
                     timer: 5000
                 });
 
+                // Redirect to home page after 5 seconds
                 setTimeout(() => history.push('/'), 5000);
             })
             .catch(error => {
                 console.error(error);
                 alert('Something went wrong.');
             });
-
-
-
     };
 
-
-
+    // Function to update Confetti dimensions on window resize
     const updateConfettiDimensions = () => {
         setConfettiDimensions({
             width: window.innerWidth,
@@ -80,6 +78,7 @@ function Submission() {
     };
 
     useEffect(() => {
+        // Add window resize event listener and clean up on unmount
         window.addEventListener('resize', updateConfettiDimensions);
 
         return () => {
@@ -87,10 +86,9 @@ function Submission() {
         }
     }, []);
 
-
     return (
         <>
-            {isConfettiActive && <Confetti {...confettiDimensions} recycle={true} />}
+            {isConfettiActive && <Confetti {...confettiDimensions} recycle={true} />} {/* Render Confetti when 'isConfettiActive' is true */}
             <Grid item xs={10} md={6}>
                 <Paper elevation={5}>
                     <Card>
@@ -105,8 +103,8 @@ function Submission() {
                             </div>
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                                <BackButton route={'/comments'} />
-                                <NextButton function={handleSubmit} startIcon={true} text={'Submit feedback'} />
+                                <BackButton route={'/comments'} /> {/* Render a custom BackButton component */}
+                                <NextButton function={handleSubmit} startIcon={true} text={'Submit feedback'} /> {/* Render a custom NextButton component */}
                             </div>
                         </CardContent>
                     </Card>
@@ -114,7 +112,6 @@ function Submission() {
             </Grid>
         </>
     )
-
 }
 
-export default Submission;
+export default Submission; // Exporting the 'Submission' component
