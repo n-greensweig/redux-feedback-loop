@@ -1,5 +1,6 @@
 import { TextField, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import BackButton from "../BackButton/BackButton";
+import CardTypography from '../CardTypography/CardTypography';
 
 import NextButton from "../NextButton/NextButton";
 import { useSelector, useDispatch } from 'react-redux';
@@ -31,20 +32,7 @@ function Comments() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent sx={{ textAlign: 'center' }}>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100%',
-                            fontFamily: 'inter'
-                        }}
-                            variant="h5"
-                            component="div"
-                            sx={{
-                                fontWeight: 'bold',
-                                mb: 2
-                            }}>Any comments you want to leave?</Typography>
+                    <CardTypography text={'Any comments you want to leave?'} />
                         <TextField type="text"
                             label='Comments'
                             multiline

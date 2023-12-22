@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import { FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 import BackButton from "../BackButton/BackButton";
+import CardTypography from '../CardTypography/CardTypography';
 
 import swal from 'sweetalert';
 
@@ -46,20 +47,7 @@ function Understanding() {
             <Paper elevation={5}>
                 <Card>
                     <CardContent sx={{ textAlign: 'center' }}>
-                        <Typography style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100%',
-                            fontFamily: 'inter'
-                        }}
-                            variant="h5"
-                            component="div"
-                            sx={{
-                                fontWeight: 'bold',
-                                mb: 2
-                            }}>How well are you understanding the content?</Typography>
+                        <CardTypography text={'How well are you understanding the content?'} />
                         <RadioGroup
                             name='newUnderstanding'
                             value={newUnderstanding}

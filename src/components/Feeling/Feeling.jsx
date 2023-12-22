@@ -4,8 +4,9 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { FormControlLabel, Radio, RadioGroup, Grid, Paper, Card, CardContent, Typography } from "@mui/material";
 
 import NextButton from "../NextButton/NextButton";
-import swal from 'sweetalert';
 import BackButton from "../BackButton/BackButton";
+import swal from 'sweetalert';
+import CardTypography from '../CardTypography/CardTypography';
 
 function Feeling() {
 
@@ -50,20 +51,7 @@ function Feeling() {
                 <Paper elevation={5}>
                     <Card>
                         <CardContent sx={{ textAlign: 'center' }}>
-                            <Typography style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                height: '100%',
-                                fontFamily: 'inter'
-                            }}
-                                variant="h5"
-                                component="div"
-                                sx={{
-                                    fontWeight: 'bold',
-                                    mb: 2
-                                }}>How are you feeling today?</Typography>
+                            <CardTypography text={'How are you feeling today?'} />
                             <RadioGroup
                                 name='newFeeling'
                                 value={newFeeling}
