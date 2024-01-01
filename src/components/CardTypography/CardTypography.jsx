@@ -1,3 +1,4 @@
+// MUI component
 import { Typography } from "@mui/material";
 
 function CardTypography(props) {

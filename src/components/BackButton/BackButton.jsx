@@ -1,7 +1,8 @@
-// BackButton component for navigating back using a button with a back arrow icon
+// MUI components
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Button } from '@mui/material';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'; // Importing React Router hook for navigation
 
 function BackButton(props) {
     const history = useHistory();

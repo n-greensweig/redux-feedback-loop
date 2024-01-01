@@ -1,3 +1,4 @@
+// MUI components
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { Button } from "@mui/material";

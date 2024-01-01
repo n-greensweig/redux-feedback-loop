@@ -1,6 +1,7 @@
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Paper, Typography, Grid, Card, CardContent } from "@mui/material";
-import NextButton from "../NextButton/NextButton";
+import { Paper, Typography, Grid, Card, CardContent } from "@mui/material"; // MUI components
+import NextButton from "../NextButton/NextButton"; // Custom next button
+
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"; // Importing React Router hook for navigation
 
 function Home() {
     
