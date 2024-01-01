@@ -1,22 +1,38 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel, Button, useTheme, useMediaQuery, Typography } from "@mui/material";
+// Import necessary dependencies and components
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    TableSortLabel,
+    Button,
+    useTheme,
+    useMediaQuery,
+    Typography
+} from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
-
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function FeedbackTable() {
-
+    // Initialize Redux dispatch and select feedback data from store
     const dispatch = useDispatch();
     const feedbackList = useSelector(store => store.feedbackList);
 
+    // Initialize local state for editing names
     const storeName = useSelector(store => store.name);
     const [name, setName] = useState(storeName);
 
+    // Initialize state for sorting
     const [sortOrder, setSortOrder] = useState('asc');
     const [sortedColumn, setSortedColumn] = useState('id');
 
+    // Define table columns
     const columns = [
         { id: 'name', label: 'Respondent' },
         { id: 'feeling', label: 'Feeling' },
@@ -25,65 +41,38 @@ function FeedbackTable() {
         { id: 'comments', label: 'Comments' },
     ];
 
+    // Fetch feedback data from the server when the component mounts
     useEffect(() => {
         dispatch({ type: 'FETCH_FEEDBACK' })
     }, []);
 
+    // Handle sorting when a column header is clicked
     const handleSort = columnId => {
         const isAsc = sortedColumn === columnId && sortOrder === 'asc';
         setSortOrder(isAsc ? 'desc' : 'asc');
         setSortedColumn(columnId);
     };
 
-    // Sort function
+    // Sort the feedback responses based on the selected column and order
     const sortedResponses = [...feedbackList].sort((a, b) => {
+        const columnAValue = a[sortedColumn];
+        const columnBValue = b[sortedColumn];
 
-        // Get current column values for  two rows being compared
-        const columnAValue = a[sortedColumn]; // Value of columnAValue for row a
-        const columnBValue = b[sortedColumn]; // Value of columnBValue for row b
-
-        // Check if value is numeric
+        // Check if values are numeric
         const isNumeric = (value) => !isNaN(parseFloat(value)) && isFinite(value);
-
-        // Check if both values are numeric
         const isNumericA = isNumeric(columnAValue);
         const isNumericB = isNumeric(columnBValue);
 
-        // Compare as numbers if both values are numbers
         if (isNumericA && isNumericB) {
-
-            if (sortOrder === "asc") {
-                // Sort ascending
-                return parseFloat(columnAValue) - parseFloat(columnBValue);
-            } else {
-                // Sort descending
-                return parseFloat(columnBValue) - parseFloat(columnAValue);
-            }
-
+            return sortOrder === "asc" ? parseFloat(columnAValue) - parseFloat(columnBValue) : parseFloat(columnBValue) - parseFloat(columnAValue);
         } else {
-            // Compare as strings if both values are strings
-            if (typeof columnAValue === "string" && typeof columnBValue === "string") {
-
-                if (sortOrder === "asc") {
-                    // Sort ascending
-                    return columnAValue.localeCompare(columnBValue);
-                } else {
-                    // Sort descending
-                    return columnBValue.localeCompare(columnAValue);
-                }
-            } else {
-                // Return 0 if value types are different
-                return 0;
-            }
+            return sortOrder === "asc" ? columnAValue.localeCompare(columnBValue) : columnBValue.localeCompare(columnAValue);
         }
     });
 
-    // Delete feedback from DB
+    // Delete feedback entry and confirm with a sweet alert
     const deleteFeedback = (id) => {
-
         const feedbackId = parseInt(id, 10);
-
-        // Sweet alert to confirm
         swal({
             title: 'Are you sure',
             text: 'Are you sure you want to delete this feedback item?',
@@ -94,50 +83,44 @@ function FeedbackTable() {
             if (willDelete) {
                 swal('Deleted!', 'This feedback has been deleted!', 'success');
 
+                // Send a DELETE request to the server to remove the feedback entry
                 axios.delete(`/feedback/${feedbackId}`)
                     .then(response => {
-                        // GET request for updated feedback list
-                        dispatch({ type: 'FETCH_FEEDBACK' });
+                        dispatch({ type: 'FETCH_FEEDBACK' }); // Fetch updated feedback list
                     })
                     .catch(error => {
                         console.error(error);
                         alert('Something went wrong.');
                     });
-
             }
-        })
-
+        });
     };
 
-    // PUT request to update name
-    // Problems remain upon clicking to edit a name and then hitting TAB
+    // Update name via a PUT request when it's edited
     const saveEditedName = (e, id) => {
-
         if (e.target.value !== '' && e.target.value !== name) {
-
             axios.put(`/feedback/${id}`, {
                 name: name,
             })
                 .then(response => {
-                    dispatch({ type: 'FETCH_FEEDBACK' });
+                    dispatch({ type: 'FETCH_FEEDBACK' }); // Fetch updated feedback list
                 })
                 .catch(error => {
                     console.error(error);
                     alert('Something went wrong.');
                 });
-
             e.currentTarget.blur();
-
         }
-
     };
 
+    // Check the screen size for responsive design
     const theme = useTheme();
     const isXsScreen = useMediaQuery(theme.breakpoints.down('xs'));
     const isSmScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <>
+            {/* Table title */}
             <h2 style={{
                 margin: '0 auto',
                 textAlign: 'center',
@@ -146,6 +129,8 @@ function FeedbackTable() {
                 fontSize: '30px',
                 fontFamily: 'inter'
             }}>Admin Feedback Table</h2>
+
+            {/* Table container */}
             <TableContainer component={Paper}
                 style={{
                     margin: '0 auto',
@@ -153,9 +138,12 @@ function FeedbackTable() {
                     overflowY: 'auto',
                     width: '90%',
                 }}>
+                {/* Feedback table */}
                 <Table stickyHeader aria-label="simple table">
+                    {/* Table header */}
                     <TableHead>
                         <TableRow>
+                            {/* Map and render table columns with sorting functionality */}
                             {columns.map((column) => (
                                 <TableCell
                                     key={column.id} style={{ padding: isXsScreen || isSmScreen ? 'auto' : '0' }}
@@ -170,12 +158,16 @@ function FeedbackTable() {
                                     </TableSortLabel>
                                 </TableCell>
                             ))}
+                            {/* Empty cell for delete buttons */}
                             <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
+                    {/* Table body */}
                     <TableBody>
+                        {/* Map and render sorted feedback responses */}
                         {sortedResponses.map(response => (
                             <TableRow key={response.id}>
+                                {/* Editable name cell */}
                                 <TableCell
                                     style={{ padding: '0', paddingLeft: '.5rem' }}
                                     sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem' }}
@@ -195,18 +187,23 @@ function FeedbackTable() {
                                         }
                                     }}
                                 >{response.name}</TableCell>
+                                {/* Feeling cell */}
                                 <TableCell style={{ padding: '0' }}
                                     sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
                                 >{response.feeling}</TableCell>
+                                {/* Understanding cell */}
                                 <TableCell style={{ padding: '0' }}
                                     sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
                                 >{response.understanding}</TableCell>
+                                {/* Support cell */}
                                 <TableCell style={{ padding: '0' }}
                                     sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
                                 >{response.support}</TableCell>
+                                {/* Comments cell */}
                                 <TableCell style={{ padding: '0' }}
                                     sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'left' }}
                                 >{response.comments}</TableCell>
+                                {/* Delete button cell */}
                                 <TableCell style={{ padding: '0' }}
                                     sx={{ fontSize: isXsScreen || isSmScreen ? '.5rem' : '.875rem', textAlign: 'center' }}
                                 >
@@ -219,7 +216,6 @@ function FeedbackTable() {
             </TableContainer >
         </>
     )
-
 }
 
-export default FeedbackTable;
+export default FeedbackTable; // Exporting the 'FeedbackTable' component
