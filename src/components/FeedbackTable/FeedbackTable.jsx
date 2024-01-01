@@ -1,4 +1,4 @@
-// Import necessary dependencies and components
+// MUI components
 import {
     Table,
     TableBody,
@@ -10,14 +10,17 @@ import {
     TableSortLabel,
     Button,
     useTheme,
-    useMediaQuery,
-    Typography
+    useMediaQuery
 } from "@mui/material";
-import axios from "axios";
+import DeleteIcon from '@mui/icons-material/Delete';
+
+// React/Redux imports
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+// Sweetalert and axios imports
 import swal from "sweetalert";
-import DeleteIcon from '@mui/icons-material/Delete';
+import axios from "axios";
 
 function FeedbackTable() {
     // Initialize Redux dispatch and select feedback data from store
