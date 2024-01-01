@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 
 function CardTypography(props) {
-
+    // Render a Typography component with specified text and styling
     return (
         <Typography style={{
             display: 'flex',
@@ -18,7 +18,6 @@ function CardTypography(props) {
                 mb: 2
             }}>{props.text}</Typography>
     )
-
 }
 
 export default CardTypography;

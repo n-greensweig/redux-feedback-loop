@@ -71,12 +71,13 @@ const comments = (state = '', action) => {
     } else if (action.type === 'SUBMIT') {
         return null;
     }
-
+    
     return state;
 };
 
 const feedbackList = (state = [], action) => {
-
+    
+    // Conditional to display feedback on /admin path
     if (action.type === 'SET_FEEDBACK') {
         return action.payload;
     }
@@ -85,7 +86,7 @@ const feedbackList = (state = [], action) => {
 
 };
 
-
+// Saga for handling asynchronous actions
 function* fetchFeedback() {
 
     try {
@@ -104,8 +105,8 @@ function* rootSaga() {
     yield takeEvery('FETCH_FEEDBACK', fetchFeedback);
 }
 
+// Create a Saga middleware and Redux store
 const sagaMiddleware = createSagaMiddleware();
-
 const reduxStore = createStore(
     combineReducers({
         name,
@@ -120,6 +121,7 @@ const reduxStore = createStore(
 
 sagaMiddleware.run(rootSaga);
 
+// Render the main application component within the Redux Provider
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>

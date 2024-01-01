@@ -1,6 +1,11 @@
+// Import React and routing dependencies
 import React from 'react';
-import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom/cjs/react-router-dom.min';
+
+// Import styling for the app
+import './App.css';
+
+// Import personally-created React components
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support'
@@ -8,9 +13,10 @@ import Comments from '../Comments/Comments';
 import Submission from '../Submission/Submission';
 import Home from '../Home/Home';
 import Name from '../Name/Name';
-
-import { Grid } from '@mui/material';
 import FeedbackTable from '../FeedbackTable/FeedbackTable';
+
+// MUI components
+import { Grid } from '@mui/material';
 
 function App() {
 
@@ -41,7 +47,6 @@ function App() {
             <Feeling />
           </Route>
 
-
           {/* Understanding route */}
           <Route exact path='/understanding'>
             <Understanding />
@@ -57,12 +62,14 @@ function App() {
             <Comments />
           </Route>
 
+          {/* Submission route */}
           <Route exact path='/submission'>
             <Submission />
           </Route>
 
         </Grid>
 
+        {/* Route to admin data table */}
         <Route exact path='/admin'>
           <FeedbackTable />
         </Route>
