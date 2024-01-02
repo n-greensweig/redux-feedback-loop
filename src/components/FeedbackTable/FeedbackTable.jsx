@@ -179,7 +179,7 @@ function FeedbackTable() {
                                     value={name}
                                     onInput={e => {
                                         if (e.currentTarget.textContent !== '') {
-                                            setName(e.currentTarget.textContent)
+                                            setName(e.currentTarget.textContent);
                                         }
                                     }}
                                     onBlur={e => saveEditedName(e, response.id)}
