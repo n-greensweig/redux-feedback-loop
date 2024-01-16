@@ -16,10 +16,9 @@ Eval Ninja is a full stack feedback app that allows users to add comprehensive. 
 2. Fork and clone the repository
 3. The queries in the database.sql file are set up to create all necessary tables and populate the needed data to allow the app to run correctly. The project is built on PostgreSQL, so you will need to have PostgreSQL installed for the app to work. We recommend using Postico to run those queries as that was used to create the queries.
 4. Open up your editor of choice and run an ```npm install```
-5. Next, run ```npm install @mui/material @emotion/react @emotion/styled```, ```npm install @mui/icons-material```, and ```npm install @fontsource/roboto```
-6. Run ```npm run server``` in your terminal
-7. Run ```npm run client``` in your terminal
-8. The ```npm run client``` command will open up a new browser tab for you
+5. Run ```npm run server``` in your terminal
+6. Run ```npm run client``` in your terminal
+7. The ```npm run client``` command will open up a new browser tab for you
 
 ## Usage
 After starting the application:
