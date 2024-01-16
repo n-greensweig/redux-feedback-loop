@@ -8,7 +8,7 @@
 - [Contributing](#Contributing)
 
 ## Description
-Eval Ninja is a full stack feedback app that allows users to add comprehensive. It includes a confetti effect on form submission and allows admin to sort users' feedback responses by the various data being collected in the survey. The app is built with React, Redux, Node.js, and Material UI, providing a dynamic and responsive user experience for both respondents and admin. Users' responses while the survey is in progress are stored in a Redux store to ensure users can go back to previous pages and see their responses to previous questions without losing their data.
+Eval Ninja is a full stack feedback app that allows users to add comprehensive. It includes a confetti effect on form submission and allows admin to sort users' feedback responses by the various data being collected in the survey. The app is built with React, Redux, Node.js, and Material UI, providing a dynamic and responsive user experience for both respondents and admin. Users' responses while the survey is in progress are stored in a Redux store to ensure users can go back to previous pages and see their responses to previous questions without losing their data. The app is hosted at https://www.evalninja.com/#/ using a combination of AWS and Heroku.
 
 ## Installation
 
