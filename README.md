@@ -8,10 +8,9 @@
 - [Contributing](#Contributing)
 
 ## Description
-Eval Ninja is a full stack feedback app that allows users to add comprehensive. It includes a confetti effect on form submission and allows admin to sort users' feedback responses by the various data being collected in the survey. The app is built with React, Redux, Node.js, and Material UI, providing a dynamic and responsive user experience for both respondents and admin. Users' responses while the survey is in progress are stored in a Redux store to ensure users can go back to previous pages and see their responses to previous questions without losing their data. The app is hosted at https://www.evalninja.com/#/ using a combination of AWS and Heroku.
+Eval Ninja is a full stack feedback app that allows users to add comprehensive. It includes a confetti effect on form submission and allows admin to sort users' feedback responses by the various data being collected in the survey. The app is built with React, Redux, Node.js, and Material UI, providing a dynamic and responsive user experience for both respondents and admin. Users' responses while the survey is in progress are stored in a Redux store to ensure users can go back to previous pages and see their responses to previous questions without losing their data. The app used to be hosted at https://www.evalninja.com/#/ using a combination of AWS and Heroku, however, I have removed it from hosting to save on unnecessary expenses.
 
 ## Installation
-
 1. Create a database named ```prime_feedback```
 2. Fork and clone the repository
 3. The queries in the database.sql file are set up to create all necessary tables and populate the needed data to allow the app to run correctly. The project is built on PostgreSQL, so you will need to have PostgreSQL installed for the app to work. We recommend using Postico to run those queries as that was used to create the queries.
